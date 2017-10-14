@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+
+
+    <!-- libaries -->
+
+    <!-- unlinked reset.css, bootstrap includes its own reset -->
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <!-- font awesome css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="assets/css/stylesheet.nested.css">
+
+
+    <!-- modal styling css-->
+    <link rel="stylesheet" href="assets/css/modal.css">
+
+
+    <!-- scripts -->
+
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+
+
+    <!-- anime js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js" charset="utf-8"></script>
+
+
+    <!-- moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"></script>
+
+
+    <!-- Add Your Scripts below -->
+    <script src="assets/js/firebase-pref.js"></script>
+
+    <script src="assets/js/clock.js" charset="utf-8"></script>
+
+    <!--    <script src="assets/js/cta.js" charset="utf-8"></script>-->
+
+    <script src="assets/js/weather.js" charset="utf-8"></script>
+
+
+
+    <!--*** this contains every single link that the original had, I have no idea why some css styling seems to have disappeared **-->
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <!-- Modal per bootstrap guidelines it should be located near the top-->
+    <div class="modal fade" id="input-modal" role="input form">
+        <div class="modal-dialog">
+
+
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                    <h4>Welcome New User!</h4>
+                    <h3>Please fill out the below form so we can build your dashboard :)</h3>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="zipCode">Enter Zip Code for Weather Updates</label>
+                            <input type="text" class="form-control" id="zipCode" placeholder="6-digit zip">
+                        </div>
+                        <div class="form-group">
+                            <label for="input2">input 2</label>
+                            <input type="text" class="form-control" id="input2" placeholder="Enter info">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">input 3</label>
+                            <input type="text" class="form-control" id="input3" placeholder="Enter info">
+                        </div>
+                        <button class="btn btn-success btn-block" id="preferencesSubmit">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Has the logo and Clock -->
+    <header id="header">
+        <div id="logo">
+            <div class="img1"><img src="assets/images/busIcon.png" class="img" /></div>
+            <div class="title">
+                <p class="center">Chicago Dash</p>
+            </div>
+            <div class="img2"><img src="assets/images/busIcon.png" class="img " /></div>
+        </div>
+        <div id="clock">
+            <div class="hero-circle center">
+                <div class="hero-face">
+                    <div id="hour" class="hero-hour"></div>
+                    <div id="minute" class="hero-minute"></div>
+                    <div id="second" class="hero-second"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <!-- Main section has a left and a right area. Left area housess weather and timer clock. Right Section houses Form -->
+
+
+
+
+    <section id="mainContent">
+        <!-- Weather and timer -->
+        <div id="leftArea">
+            <div id="weather">
+                <div class="center weatherInfo ">
+                    Weather Graphics Goes Here
+                </div>
+            </div>
+            <div id="timer">
+                <div class="center">
+                    Timer Graphics Goes Here
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="rightArea">
+            <!-- had to remove the form, it was messing up the form in the modal -->
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer id="footer" class="navbar-fixed-bottom">
+        <div class="center">
+            <p>Proudly Presented by Console.Fun </p>
+        </div>
+    </footer>
+
+
+
+
+
+</body>
+
+</html>

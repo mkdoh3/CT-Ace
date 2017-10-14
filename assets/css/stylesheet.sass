@@ -1,0 +1,180 @@
+// variables
+$border: 1px black solid
+
+//Mixins
+@mixin grid ($columns, $rows, $area)
+  grid-template-columns: $columns
+  grid-template-rows: $rows
+  grid-template-areas: $area
+
+////Center Horizontally and Vertically Using grid
+@mixin grid_Vertical_Horizontal_Center
+  justify-self: center
+  align-self: center
+
+////Center Horizontally and Vertically Using Css transform
+@mixin normal_Vertical_Horizontal_Center
+  // Remember to declare parent as postion: relative
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+@mixin view_Height_Width
+  height: 100vh
+  width: 100vw
+
+//Shared Classes
+.center
+  justify-self: center
+  align-self: center
+  text-align: center
+
+.img
+  height: 50%
+  width: 50%
+  @include grid_Vertical_Horizontal_Center
+
+// Body Desktop View
+body
+  display: grid
+  @include view_Height_Width
+  @include grid($columns:0.1fr 1fr 0.1fr, $rows: 2fr 6fr 1fr, $area:". header ." ". mainContent ." ". footer ." )
+  // Header row
+  #header
+    grid-area: header
+    border: $border
+    display: grid
+    @include grid($columns:1fr 5fr 1fr, $rows: 1fr, $area:". logo clock" )
+    // Has 3 columns
+    #logo
+      grid-area: logo
+      border: $border
+      display: grid
+      @include grid($columns:1fr 1fr 1fr, $rows: 1fr, $area:"img1 title img2")
+      .img1
+        grid-area: img1
+        width: 100%
+        display: grid
+      .title
+        grid-area: title
+        width: 100%
+        display: grid
+      .img2
+        grid-area: img2
+        width: 100%
+        display: grid
+    #clock
+      grid-area: clock
+      border: $border
+      display: grid
+      .hero-circle
+        width: 100px
+        height: 100px
+        margin: 0 auto
+        position: relative
+        border: 4px solid yellow
+        border-radius: 50%
+        background: url(../img/bg.png) 0 50
+        .hero-face
+          width: 100%
+          height: 100%
+        .hero-face:after
+          position: absolute
+          top: 50%
+          left: 50%
+          width: 12px
+          height: 12px
+          margin: -6px 0 0 -6px
+          background: black
+          border-radius: 6px
+          content: ""
+          display: block
+        .hero-hour
+          width: 0
+          height: 0
+          position: absolute
+          top: 50%
+          left: 50%
+          margin: -4px 0 -4px -25%
+          padding: 4px 0 4px 25%
+          background: blue
+          -webkit-transform-origin: 100% 50%
+          -ms-transform-origin: 100% 50%
+          transform-origin: 100% 50%
+          border-radius: 4px 0 0 4px
+        .hero-minute
+          width: 0
+          height: 0
+          position: absolute
+          top: 50%
+          left: 50%
+          margin: -40% -3px 0
+          padding: 40% 3px 0
+          background: blue
+          -webkit-transform-origin: 50% 100%
+          -ms-transform-origin: 50% 100
+          transform-origin: 50% 100%
+          border-radius: 3px 3px 0 0
+        .hero-second
+          width: 0
+          height: 0
+          position: absolute
+          top: 50%
+          left: 50%
+          margin: -40% -1px 0 0
+          padding: 40% 1px 0
+          background: blue
+          -webkit-transform-origin: 50% 100%
+          -ms-transform-origin: 50% 100%
+          transform-origin: 50% 100%
+
+  // Main Content Area
+  #mainContent
+    grid-area: mainContent
+    border: $border
+    display: grid
+    @include grid($columns: 0.1fr 5fr 5fr 0.1fr, $rows: 1fr, $area: ". leftArea rightArea .")
+    grid-column-gap: 10px
+    #leftArea
+      grid-area: leftArea
+      border: $border
+      height: 100%
+      width: 100%
+      display: grid
+      @include grid($columns: 1fr , $rows: 1fr 1fr, $area: "weather" "timer")
+      #weather
+        grid-area: weather
+        border: $border
+        display: grid
+      #timer
+        grid-area: timer
+        border: $border
+        display: grid
+
+    #rightArea
+      grid-area: rightArea
+      border: $border
+      height: 100%
+      width: 100%
+      display: grid
+      .form
+        height: 80%
+        width: 100%
+        .form-group
+          height: 20%
+          text-align: left
+        .form-check
+          height: 20%
+          text-align: left
+        .btn
+          height: 20%
+          width: 100%
+
+  // Footer Area
+  #footer
+    grid-area: footer
+    border: $border
+    height: 100%
+    width: 100%
+    display: grid

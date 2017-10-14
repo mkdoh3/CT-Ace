@@ -1,0 +1,157 @@
+.center {
+  justify-self: center;
+  align-self: center;
+  text-align: center; }
+
+.img {
+  height: 50%;
+  width: 50%;
+  justify-self: center;
+  align-self: center; }
+
+body {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 0.1fr 1fr 0.1fr;
+  grid-template-rows: 2fr 6fr 1fr;
+  grid-template-areas: ". header ." ". mainContent ." ". footer ."; }
+  body #header {
+    grid-area: header;
+    border: 1px black solid;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". logo clock"; }
+    body #header #logo {
+      grid-area: logo;
+      border: 1px black solid;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "img1 title img2"; }
+      body #header #logo .img1 {
+        grid-area: img1;
+        width: 100%;
+        display: grid; }
+      body #header #logo .title {
+        grid-area: title;
+        width: 100%;
+        display: grid; }
+      body #header #logo .img2 {
+        grid-area: img2;
+        width: 100%;
+        display: grid; }
+    body #header #clock {
+      grid-area: clock;
+      border: 1px black solid;
+      display: grid; }
+      body #header #clock .hero-circle {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        position: relative;
+        border: 4px solid yellow;
+        border-radius: 50%;
+        background: url(../img/bg.png) 0 50; }
+        body #header #clock .hero-circle .hero-face {
+          width: 100%;
+          height: 100%; }
+        body #header #clock .hero-circle .hero-face:after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 12px;
+          height: 12px;
+          margin: -6px 0 0 -6px;
+          background: black;
+          border-radius: 6px;
+          content: "";
+          display: block; }
+        body #header #clock .hero-circle .hero-hour {
+          width: 0;
+          height: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -4px 0 -4px -25%;
+          padding: 4px 0 4px 25%;
+          background: blue;
+          -webkit-transform-origin: 100% 50%;
+          -ms-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+          border-radius: 4px 0 0 4px; }
+        body #header #clock .hero-circle .hero-minute {
+          width: 0;
+          height: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -40% -3px 0;
+          padding: 40% 3px 0;
+          background: blue;
+          -webkit-transform-origin: 50% 100%;
+          -ms-transform-origin: 50% 100;
+          transform-origin: 50% 100%;
+          border-radius: 3px 3px 0 0; }
+        body #header #clock .hero-circle .hero-second {
+          width: 0;
+          height: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -40% -1px 0 0;
+          padding: 40% 1px 0;
+          background: blue;
+          -webkit-transform-origin: 50% 100%;
+          -ms-transform-origin: 50% 100%;
+          transform-origin: 50% 100%; }
+  body #mainContent {
+    grid-area: mainContent;
+    border: 1px black solid;
+    display: grid;
+    grid-template-columns: 0.1fr 5fr 5fr 0.1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". leftArea rightArea .";
+    grid-column-gap: 10px; }
+    body #mainContent #leftArea {
+      grid-area: leftArea;
+      border: 1px black solid;
+      height: 100%;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "weather" "timer"; }
+      body #mainContent #leftArea #weather {
+        grid-area: weather;
+        border: 1px black solid;
+        display: grid; }
+      body #mainContent #leftArea #timer {
+        grid-area: timer;
+        border: 1px black solid;
+        display: grid; }
+    body #mainContent #rightArea {
+      grid-area: rightArea;
+      border: 1px black solid;
+      height: 100%;
+      width: 100%;
+      display: grid; }
+      body #mainContent #rightArea .form {
+        height: 80%;
+        width: 100%; }
+        body #mainContent #rightArea .form .form-group {
+          height: 20%;
+          text-align: left; }
+        body #mainContent #rightArea .form .form-check {
+          height: 20%;
+          text-align: left; }
+        body #mainContent #rightArea .form .btn {
+          height: 20%;
+          width: 100%; }
+  body #footer {
+    grid-area: footer;
+    border: 1px black solid;
+    height: 100%;
+    width: 100%;
+    display: grid; }
