@@ -1,45 +1,62 @@
-$(document).ready(function() {
-  console.log("Clock is running");
-  ////////////////////////// MomentJS Logic //////////////////////////////////////
 
-  // Function to get Current Time
-  // function currentTime(){
-  //   //Grab the current TIME
-  //   let timeVariable = moment().format('MMMM Do YYYY, h:mm:ss a');
-  //   //Display current date and time on the document
-  //   let timeHTML = $("<div>").addClass("center");
-  //   timeHTML.html(timeVariable);
-  //   $(".time").html(timeHTML).css("color", "yellow");
-  // }
 
-  // Updates the time on HTML
-  // setInterval(currentTime, 1000);
 
-  function time(){
-
-    function updateClock(){
-        var now = moment();
-            second = now.seconds() * 6;
-            minute = now.minutes() * 6 + second / 60;
-            hour = ((now.hours() % 12) / 12) * 360 + 90 + minute / 12;
-
-        $('#hour').css("transform", "rotate(" + hour + "deg)");
-        $('#minute').css("transform", "rotate(" + minute + "deg)");
-        $('#second').css("transform", "rotate(" + second + "deg)");
+    function setup() {
+     var canvas = createCanvas(400, 400);
+      angleMode(DEGREES);
+      canvas.parent('clock');
+      $("#defaultCanvas0").css({"height": "100%", "width":"50%"}).addClass("center")
     }
 
-    function timedUpdate () {
-        updateClock();
-        setTimeout(timedUpdate, 1000);
+
+    function draw() {
+      clear();
+      translate(200, 200);
+      rotate(-90);
+
+      let hr = hour();
+      let mn = minute();
+      let sc = second();
+
+      strokeWeight(8);
+      stroke(79, 183, 31);
+      noFill();
+      let secondAngle = map(sc, 0, 60, 0, 360);
+      arc(0, 0, 300, 300, 0, secondAngle);
+
+      stroke(2, 196, 255);
+      let minuteAngle = map(mn, 0, 60, 0, 360);
+      arc(0, 0, 280, 280, 0, minuteAngle);
+
+      stroke(255, 199, 0);
+      let hourAngle = map(hr % 12, 0, 12, 0, 360);
+      arc(0, 0, 260, 260, 0, hourAngle);
+
+      push();
+      rotate(secondAngle);
+      stroke(79, 183, 31)
+      line(0, 0, 100, 0);
+      pop();
+
+      push();
+      rotate(minuteAngle);
+      stroke(2, 196, 255);
+      line(0, 0, 75, 0);
+      pop();
+
+      push();
+      rotate(hourAngle);
+      stroke(255, 199, 0);
+      line(0, 0, 50, 0);
+      pop();
+
+      stroke(255);
+      point(0, 0);
+
+
+    //   fill(255);
+    //   noStroke();
+    //   text(hr + ':' + mn + ':' + sc, 10, 200);
+
+
     }
-
-    timedUpdate();
-  };
-
-  //////////////////////// End of Moment JS ///////////////////////////////////////
-
-time();
-
-
-
-});

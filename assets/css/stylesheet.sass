@@ -1,3 +1,10 @@
+*
+  overflow-x: hidden
+  overflow-y: hidden
+  ::-webkit-scrollbar
+    display: none
+
+
 // variables
 $border: 1px black solid
 
@@ -24,157 +31,220 @@ $border: 1px black solid
   height: 100vh
   width: 100vw
 
-//Shared Classes
+
+//Sha(255,0,0,0) Classes
 .center
   justify-self: center
   align-self: center
   text-align: center
 
-.img
-  height: 50%
-  width: 50%
-  @include grid_Vertical_Horizontal_Center
 
 // Body Desktop View
 body
   display: grid
-  @include view_Height_Width
-  @include grid($columns:0.1fr 1fr 0.1fr, $rows: 2fr 6fr 1fr, $area:". header ." ". mainContent ." ". footer ." )
+  height: 100vh
+  width: 100vw
+  @include grid($columns:0.1fr 1fr 0.1fr, $rows: 1.5fr 6fr 0.1fr, $area:"header header header" ". mainContent ." "footer footer footer" )
+  grid-column-gap: 20px
+  grid-row-gap: 10px
+  background: url("../images/chicagoSkyline.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+  padding: 0
+  margin: 0
+
   // Header row
   #header
     grid-area: header
-    border: $border
     display: grid
-    @include grid($columns:1fr 5fr 1fr, $rows: 1fr, $area:". logo clock" )
-    // Has 3 columns
-    #logo
+    background: -webkit-linear-gradient(bottom, rgba(44,62,80,0.6) , transparent)
+    background: -o-linear-gradient(bottom, rgba(44,62,80,0.6), transparent)
+    background: -moz-linear-gradient(bottom, rgba(44,62,80,0.6), transparent)
+    background: linear-gradient(to bottom, rgba(44,62,80,0.6) , transparent)
+    @include grid($columns:3fr 5fr 2fr, $rows: 1fr, $area:"logo . clock" )
+    .logo
       grid-area: logo
-      border: $border
-      display: grid
-      @include grid($columns:1fr 1fr 1fr, $rows: 1fr, $area:"img1 title img2")
-      .img1
-        grid-area: img1
-        width: 100%
-        display: grid
-      .title
-        grid-area: title
-        width: 100%
-        display: grid
-      .img2
-        grid-area: img2
-        width: 100%
-        display: grid
+      height: 100%
+      width: 100%
+      opacity: 1
+    //  Clock
     #clock
       grid-area: clock
-      border: $border
+      opacity: 1
       display: grid
-      .hero-circle
-        width: 100px
-        height: 100px
-        margin: 0 auto
-        position: relative
-        border: 4px solid yellow
-        border-radius: 50%
-        background: url(../img/bg.png) 0 50
-        .hero-face
-          width: 100%
-          height: 100%
-        .hero-face:after
-          position: absolute
-          top: 50%
-          left: 50%
-          width: 12px
-          height: 12px
-          margin: -6px 0 0 -6px
-          background: black
-          border-radius: 6px
-          content: ""
-          display: block
-        .hero-hour
-          width: 0
-          height: 0
-          position: absolute
-          top: 50%
-          left: 50%
-          margin: -4px 0 -4px -25%
-          padding: 4px 0 4px 25%
-          background: blue
-          -webkit-transform-origin: 100% 50%
-          -ms-transform-origin: 100% 50%
-          transform-origin: 100% 50%
-          border-radius: 4px 0 0 4px
-        .hero-minute
-          width: 0
-          height: 0
-          position: absolute
-          top: 50%
-          left: 50%
-          margin: -40% -3px 0
-          padding: 40% 3px 0
-          background: blue
-          -webkit-transform-origin: 50% 100%
-          -ms-transform-origin: 50% 100
-          transform-origin: 50% 100%
-          border-radius: 3px 3px 0 0
-        .hero-second
-          width: 0
-          height: 0
-          position: absolute
-          top: 50%
-          left: 50%
-          margin: -40% -1px 0 0
-          padding: 40% 1px 0
-          background: blue
-          -webkit-transform-origin: 50% 100%
-          -ms-transform-origin: 50% 100%
-          transform-origin: 50% 100%
+
+
+    // Has 3 columns
 
   // Main Content Area
   #mainContent
     grid-area: mainContent
-    border: $border
+    height: 100%
     display: grid
-    @include grid($columns: 0.1fr 5fr 5fr 0.1fr, $rows: 1fr, $area: ". leftArea rightArea .")
-    grid-column-gap: 10px
-    #leftArea
-      grid-area: leftArea
-      border: $border
-      height: 100%
-      width: 100%
-      display: grid
-      @include grid($columns: 1fr , $rows: 1fr 1fr, $area: "weather" "timer")
-      #weather
-        grid-area: weather
-        border: $border
-        display: grid
-      #timer
-        grid-area: timer
-        border: $border
-        display: grid
+    overflow-y: hidden
+    max-width: 100% !important
+    // Div that contains all the various contents
+    .autoplay
+      margin-bottom: 0
+      .slick-list
+        height: 90%
+        border: 2px solid rgba(206,21,67, 0.3)
+        .slick-track
+          height: 100% !important
+          position: relative
+          .slick-slide
+            text-align: center
+            width: 100%
+            height: 100%
+            background-color: rgba(255, 255, 255, .05)
+            overflow: hidden
+            // Start of HomePage
+            .homePage
+              display: grid
+              height: 100%
+              width: 100%
+              @include grid($columns: 1fr , $rows: 1fr 1fr, $area:"greeting" "weather" )
+              overflow: hidden
+              .greeting
+                grid-area: greeting
+                display: grid
+                font-size: 10vh
+                font-family: 'Indie Flower', cursive
+                color: rgba(255,255,255,0.7)
+                max-height: 80%
+                overflow: hidden
+              .weather
+                grid-area: weather
+                display: grid
+                font-size: 5vh
+                font-family: 'Indie Flower', cursive
+                color: rgba(255,255,255,0.7)
+                @include grid($columns: 1fr 1fr 1fr , $rows: 1fr, $area: ". . temperature")
+                max-height: 80%
+                overflow: hidden
+                .temperature
+                  grid-area: temperature
 
-    #rightArea
-      grid-area: rightArea
-      border: $border
-      height: 100%
-      width: 100%
-      display: grid
-      .form
-        height: 80%
-        width: 100%
-        .form-group
-          height: 20%
-          text-align: left
-        .form-check
-          height: 20%
-          text-align: left
-        .btn
-          height: 20%
-          width: 100%
+            // Start of Bus Widget
+            .container
+              width: 100%
+              height: 100%
+              background-color: rgba(0,0,0, 0.5)
+              overflow: hidden
+              .table
+                .bus-time-table
+                  width: 100%
+                  max-width: 100% !important
+                  max-height: 100% !important
+
+                  .time-table-head
+                    background-color: rgba(0,122,195, 0.8)
+                    color: #fcfdff
+
+                    #busNumber
+                      font-size: 3.25em
+                      font-weight: 700
+                      text-align: left
+                      padding: 5px
+
+                    #stopInfo
+                      text-align: right
+                      padding: 5px
+                      font-size: 1.1em
+                      font-weight: 700
+                      vertical-align: middle
+
+                  .time-table-body
+                    background-color: rgba(252,253,255, 0.8)
+                    font-size: 1.6em
+                    font-weight: 600
+                    tr
+                      border: 1px black solid
+                      position: relative
+                    .busArrivalTime
+                      font-size: 1.25em
+                      text-align: left
+                      vertical-align: middle
+                      padding: 5px
+
+                    .busDestinationAndNumber
+                      text-align: right
+                      vertical-align: middle
+                      padding: 5px
+                      span
+                        font-weight: 200
+                        font-size: .85em
+                        // End of Bus Widget
+      .slick-dots
+        bottom: 0
 
   // Footer Area
   #footer
+    display: grid
     grid-area: footer
-    border: $border
     height: 100%
     width: 100%
-    display: grid
+    text-align: center
+    color: rgb(173, 173, 65)
+    font-size: 2vh
+    font-family: 'Indie Flower', cursive
+    text-shadow: 1px 1px black
+    background: -webkit-linear-gradient(top, rgba(44,62,80,1) , rgba(255,255,255,0))
+    background: -o-linear-gradient(top, rgba(44,62,80,1), rgba(255,255,255,0))
+    background: -moz-linear-gradient(top, rgba(44,62,80,1), rgba(255,255,255,0))
+    background: linear-gradient(to top, rgba(44,62,80,1) , rgba(255,255,255,0))
+
+// Mobile View
+@media only screen and (max-width: 740px)
+
+
+  html
+    zoom: 100%
+    -moz-transform: scale(1)
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+    body
+      @include grid($columns:0.1fr 1fr 0.1fr, $rows: 2fr 6fr 1fr, $area:"header header header" ". mainContent ." "footer footer footer" )
+      overflow: scroll
+      // Header row
+      #header
+        @include grid($columns:4fr 0.5fr 4fr, $rows: 1fr, $area:"logo . clock" )
+        min-height: 100px
+      #mainContent
+        // Div that contains all the various contents
+        .autoplay
+          .slick-list
+            .slick-track
+              .slick-slide
+                //Main Page
+                .homePage
+                  @include grid($columns: 1fr , $rows: 1fr 2fr, $area:"greeting" "weather" )
+                  .greeting
+                    font-size: 5vh
+                    padding-top: 20px
+                  .weather
+                    font-size: 4vh
+                    font-weight: bold
+                    color: rgba(255, 255, 255, 1)
+                    text-shadow: black
+                    @include grid($columns: 1fr 1fr 1fr , $rows: 1fr, $area: " temperature temperature temperature")
+                    .temperature
+                // bus
+                .container
+                  .table
+                    .bus-time-table
+                      font-size: 1vh
+                      .time-table-head
+                        #busNumber
+                        #stopInfo
+                      .time-table-body
+                        tr
+                        .busArrivalTime
+                        .busDestinationAndNumber
+                          text-align: right
+                          span
+                            // End of Bus Widget
+          .slick-dots
+      // Footer Area
+      #footer
