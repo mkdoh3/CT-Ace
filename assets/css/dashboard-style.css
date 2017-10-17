@@ -30,11 +30,16 @@
 
 #temperature {
     position: absolute;
-    right: 5.5em;
+    right: 6em;
     top: .5em;
     color: #f2f4f7;
     font-weight: 600;
     font-size: 1.25em
+}
+
+.weather-link {
+    text-decoration: none;
+    color: inherit
 }
 
 
@@ -151,9 +156,6 @@
     color: aliceblue;
 }
 */
-
-
-
 
 /*small screen stylings*/
 
