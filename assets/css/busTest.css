@@ -1,0 +1,10 @@
+select {
+	size = 7;
+	margin:10px auto 5px auto;
+
+}
+
+.panel-heading {
+	text-align: center;
+}
+
