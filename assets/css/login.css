@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../images/city_water_cloud_boat-11242.jpg!d) no-repeat center center;
+    background-size: cover;
+}
+
+.container {
+    margin-top: 20vh;
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: .9;
+    border: .5em lightblue;
+    border-style: outset
+}
+
+#firebaseui-auth-container {
+    padding: .75em 1em;
+}
