@@ -1,20 +1,37 @@
 $(document).ready(function () {
-      // console.log("current user", currentUser)
+    // console.log("current user", currentUser)
     console.log("weather function is running");
-
 
     //    var zip = currentUser.zipCode;
 
     //we'll have to figure out how to make all of these different api calls
     //currently when the weather js runs currentUser.zipCode is undefined and isnt defined until after the fact
 
-    var zip = 60643
+    let weatherIcons = {
+        "11d": "<div class='icon thunder-storm'> <
+            div class = 'cloud' > < /div> <
+            div class = 'lightning' >
+            <
+            div class = 'bolt' > < /div> <
+            div class = 'bolt' > < /div> <
+            /div> <
+            /div>"
+    }
+
+
+
+
+
+
+    var zip = 60643;
     var apiKey = "7a6a7145f6a1c220db94cc631bef319e";
     var url = "http://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",&APPID=" + apiKey;
-
     // Ajax call to weather API
 
-    $.ajax({url: url,method: "GET"}).done(function (response) {
+    $.ajax({
+        url: url,
+        method: "GET"
+    }).done(function (response) {
 
         console.log(response);
 

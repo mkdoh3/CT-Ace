@@ -1,101 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
-
-    <!-- libaries -->
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- CSS Reset -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <!-- font awesome css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- modal styling css-->
-    <link rel="stylesheet" href="assets/css/modal.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <!-- Slick Slider CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/slick-1.8.0/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/slick-1.8.0/slick/slick-theme.css"/>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/stylesheet.nested.css">
-
-    <!-- scripts -->
-
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- bootstrap js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
-    <!-- slick JS-->
-    <script type="text/javascript" src="assets/slick-1.8.0/slick/slick.min.js"></script>
-    <!-- p5 JS-->
-    <script src="assets/p5/p5.js"></script>
-
-    <!-- Add Your Scripts below -->
-    <script src="assets/js/firebase-pref.js"></script>
-    <script src="assets/js/weather.js" charset="utf-8"></script>
-    <script src="assets/js/slider.js" charset="utf-8"></script>
-    <script src="assets/js/displayMessage.js" charset="utf-8"></script>
-    <script src="assets/js/clock.js"></script>
-    <!-- <script src="assets/js/cta.js" charset="utf-8"></script>-->
-
-    <!--*** this contains every single link that the original had, I have no idea why some css styling seems to have disappeared **-->
-
-
-
-
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/dashboard-style.css">
+    <link rel="stylesheet" href="assets/css/flipclock.css">
+    <link rel="stylesheet" href="assets/css/weather.css">
+    <script src="https://use.fontawesome.com/38591a8d48.js"></script>
 </head>
 
 <body>
-
-<div id="after_Modal">
-<!-- Main Page -->
-  <!-- Has the logo and Clock -->
-  <header id = "header">
-    <img class = "logo " src = "assets/images/ctaDash.png" />
-    <!-- clock -->
-    <div id = "clock"></div>
-  </header>
-
-  <!-- Main section  -->
-  <section id = "mainContent" data-state ="true">
-    <div class='autoplay'>
-      <!-- homepage -->
-      <div id = "home">
-        <div class="homePage">
-          <!-- Personal Greeting -->
-          <div class="greeting">
-
-          </div>
-          <!-- Weather -->
-          <div class="weather">
-            <div class="temperature"></div>
-          </div>
+    <!-- Modal per bootstrap guidelines it should be located near the top-->
+    <div class="modal fade" id="input-modal" role="input form">
+        <div class="modal-dialog">
+            Modal content
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                    <h4>Welcome New User!</h4>
+                    <h3>Please fill out the below form so we can build your dashboard :)</h3>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="zipCode">Enter Zip Code for Weather Updates</label>
+                            <input type="text" class="form-control" id="zipCode" placeholder="6-digit zip">
+                        </div>
+                        <div class="form-group">
+                            <label for="input2">input 2</label>
+                            <input type="text" class="form-control" id="input2" placeholder="Enter info">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">input 3</label>
+                            <input type="text" class="form-control" id="input3" placeholder="Enter info">
+                        </div>
+                        <button class="btn btn-success btn-block" id="preferencesSubmit">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- CTA Widget -->
-      <div id = "ctaWidget">
-        <div class="container">
-            <div class="table">
-                <table class="table bus-time-table">
-                    <thead class="time-table-head">
+    </div>
+    <div class="container-flex site-wrapper">
+        <div class="row">
+            <div class="col-1">
+                <a href="#"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-11 weather-div">
+                <p id="temperature">55F</p>
+
+                <div class="icon sun-shower mt-1 mr-1">
+                    <div class="cloud"></div>
+                    <div class="sun">
+                        <div class="rays"></div>
+                    </div>
+                    <div class="rain"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 clock-div">
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-12 greeting-div mt-3">
+                Good morning, Michael
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12 tracker-div mt-5">
+                <table class="table content-table">
+                    <thead class="table-head">
                         <tr>
                             <th id="busNumber">Route: 42</th>
                             <th id="stopInfo">Clark & Lake<br>South Bound </th>
                         </tr>
                     </thead>
-                    <tbody class="time-table-body">
+                    <tbody class="table-body">
                         <tr>
-                            <td class="busArrivalTime" >Arriving in: 4 mins</td>
-                            <td class="busDestinationAndNumber"><span>#6603</span> <br/>  Chicago</td>
+                            <td class="busArrivalTime">Arriving in: 4 mins</td>
+                            <td class="busDestinationAndNumber"><span>#6603</span> <br/> Chicago</td>
                         </tr>
                         <tr>
                             <td class="busArrivalTime"> Arriving in: 6 mins</td>
@@ -108,51 +108,131 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="col-md-6 col-sm-12 news-div mt-5">
+                <table class="table content-table">
+                    <thead class="table-head">
+                        <tr>
+                            <th> News Feed</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr>
+                            <td class="newsFeed">News Goes Here</td>
+                        </tr>
+                        <tr>
+                            <td class="newsFeed"> News Goes Here</td>
+                        </tr>
+                        <tr>
+                            <td class="newsFeed">News Goes Here</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+
+        <div class="row">
+            <div class="col-12 quote-div mt-5">
+                <blockquote class="blockquote mb-0" id="randomQuote">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <footer class="blockquote-footer">Quote Generator goes here!</footer>
+                </blockquote>
+            </div>
+            <div class="row bottom-row">
+                <div class="col-12">
+                    <p id="logo">by Console.(FUN)</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--
+          
+      <av class="navbar sticky-top navbar-expand-sm navbar-light bg-light col-lg-12">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/ds.png" width="30" height="30" class="d-inline-block align-top" alt=""><span class="full-name">Michael Doherty</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="justify-content-end" id="settingsLink">
+            <p>Settings</p>
+          </div>
+        </nav>
       </div>
-      <div id = "desktop3">Desktop 3</div>
-      <div id = "desktop4">Desktop 4</div>
+-->
+
+
+
+
+    <!--
+
+    <div class="icon sun-shower">
+        <div class="cloud"></div>
+        <div class="sun">
+            <div class="rays"></div>
+        </div>
+        <div class="rain"></div>
     </div>
 
-  </section>
-
-  <!-- Footer -->
-  <footer id = "footer"><div class = "center"><p>Proudly Presented by Console.(Fun) </p></div></footer>
-
-</div>
-
-<!-- Modal per bootstrap guidelines it should be located near the top-->
-<div class="modal fade" id="input-modal" role="input form">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header" style="padding:35px 50px;">
-                <h4>Welcome New User!</h4>
-                <h3>Please fill out the below form so we can build your dashboard :)</h3>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
-                <form role="form">
-                    <div class="form-group">
-                        <label for="zipCode">Enter Zip Code for Weather Updates</label>
-                        <input type="text" class="form-control" id="zipCode" placeholder="6-digit zip">
-                    </div>
-                    <div class="form-group">
-                        <label for="input2">input 2</label>
-                        <input type="text" class="form-control" id="input2" placeholder="Enter info">
-                    </div>
-                    <div class="form-group">
-                        <label for="input3">input 3</label>
-                        <input type="text" class="form-control" id="input3" placeholder="Enter info">
-                    </div>
-                    <button class="btn btn-success btn-block" id="preferencesSubmit">Submit</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-            </div>
+    <div class="icon thunder-storm">
+        <div class="cloud"></div>
+        <div class="lightning">
+            <div class="bolt"></div>
+            <div class="bolt"></div>
         </div>
     </div>
-</div>
 
+    <div class="icon cloudy">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+
+    <div class="icon flurries">
+        <div class="cloud"></div>
+        <div class="snow">
+            <div class="flake"></div>
+            <div class="flake"></div>
+        </div>
+    </div>
+
+    <div class="icon sunny">
+        <div class="sun">
+            <div class="rays"></div>
+        </div>
+    </div>
+
+    <div class="icon rainy">
+        <div class="cloud"></div>
+        <div class="rain"></div>
+    </div>
+-->
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script src="assets/js/flipclock.min.js"></script>
+
+    <script src="assets/js/weather.js"></script>
 
 </body>
 
