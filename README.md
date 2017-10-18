@@ -9,10 +9,10 @@
 //time all api calls
 //input verification -- zipCode verification. Chicago only?
 //tie weather html link to zipCode
+//style login page
 //polish tracker and news div styling
 //add comments to code
 //write the readme
-//style login page
 
 
 
@@ -29,7 +29,7 @@
 //change display name option
 //function to go back during preference setting
 //password reset
-//optimize mobile layout
+//better optimize mobile layout
 //consolidate and minify master branch js and style files
 
 
