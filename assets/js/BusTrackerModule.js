@@ -101,6 +101,7 @@ var BusTrackerModule = (function () {
                 var option = $("<option>").attr("value", direction.dir).text(direction.dir);
                 $(dropdown).append(option);
             });
+            $("#direction-select").remove();
             $(idOfDropdownDiv).after(dropdown.hide());
             dropdown.fadeIn();
         }))
@@ -143,6 +144,13 @@ var BusTrackerModule = (function () {
             $("#direction-select").insertBefore(idOfDropdownDiv);
             $(idOfDropdownDiv).append(dropdown.hide());
             dropdown.slideDown(400);
+            let submitBtn = $("<btn>")
+            submitBtn.addClass("btn btn-success btn-block")
+                .attr("id", "submitBtn")
+                .text("Submit")
+            $("#submitBtn").remove();
+            $(idOfDropdownDiv).after(submitBtn)
+
         }))
     }
 

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/flipclock.css">
     <link rel="stylesheet" href="assets/css/weather.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="assets/css/busTest.css">
+    <!--    <link rel="stylesheet" href="assets/css/busTest.css">-->
     <script src="https://use.fontawesome.com/38591a8d48.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 
@@ -24,55 +24,22 @@
         <div class="modal-dialog">
             <!--            Modal content-->
             <div class="modal-content">
-                <div class="modal-header" id="modalText" style="padding:35px 50px;">
+                <div class="modal-header" id="modalText">
+                    <h2>Welcome displayName!</h2>
                     <h3>Please Enter Zip Code for Weather Updates</h3>
                 </div>
-                <div class="modal-body" style="padding:40px 50px;">
+                <div class="modal-body">
                     <form role="form">
                         <div class="form-group" id="dropDowns">
-<!--                        <label for="zipCode">Enter Zip Code for Weather Updates</label>-->
                             <input type="text" class="form-control" id="zipCode" placeholder="6-digit zip">
                         </div>
-                        <button class="btn btn-success btn-block" id="nextBtn">Next</button>
+                        <button class="btn btn-default btn-block" id="nextBtn">Next</button>
                     </form>
-                </div>
-                <div class="modal-footer">
                 </div>
             </div>
         </div>
     </div>
-    <!--
-
-    <div class="modal fade" id="busPref-modal" role="input form">
-        <div class="modal-dialog">
-            Modal content
-            <div class="modal-content">
-                <div class="modal-header" style="padding:35px 50px;">
-                    <h4>Welcome New User!</h4>
-                    <h3>Please fill out the below form so we can build your dashboard :)</h3>
-                </div>
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form role="form">
-                        <div class="form-group" id="routes">
-                            <label for="routes">Enter Bus Route</label>
-
-                        </div>
-                        <div class="form-group" id="directions">
-
-                        </div>
-                        <div class="form-group" id="stops">
-
-                        </div>
-                        <button class="btn btn-success btn-block" id="busPref-Submit">Next</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
-        </div>
-    </div>
--->
-    <div class="container-flex site-wrapper">
+    <div class="container-fluid site-wrapper">
         <div class="row">
             <div class="col-1">
                 <!--      <a href="#"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a> -->
@@ -218,6 +185,8 @@
     <script src="assets/js/BusTrackerModule.js"></script>
 
     <script src="assets/js/firebase-pref.js"></script>
+
+    <script src="assets/js/dashboard.js"></script>
 
 
 </body>
