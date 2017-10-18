@@ -1,10 +1,11 @@
 .icon {
     position: relative;
     display: inline-block;
-    width: 12em;
-    height: 10em;
+    width: 10em;
+    height: 8em;
     font-size: .5em;
     border-radius: 10%;
+
     /*     control icon size here */
 }
 

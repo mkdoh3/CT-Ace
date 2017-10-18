@@ -15,6 +15,7 @@ const database = firebase.database();
 var currentUserRef;
 let currentUserID;
 let currentUser;
+let userName;
 let userPreferences = {};
 
 
@@ -24,9 +25,17 @@ firebase.auth().onAuthStateChanged(function (user) {
         currentUserRef = firebase.database().ref("users/" + currentUserID);
         currentUserRef.once("value")
             .then(function (snapshot) {
-                currentUser = snapshot.val()
-                if (currentUser.newUser === true || currentUser.newUser === false) {
-                    $("#input-modal").modal();
+                currentUser = snapshot.val();
+                userName = currentUser.displayName;
+                console.log("user fb reference: ", currentUserRef)
+                console.log("user fb ID: ", currentUserID)
+                console.log("user fb object: ", currentUser)
+                console.log("user display name: ", userName)
+                if (currentUser.newUser === true) {
+                    $("#input-modal").modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    });
                     currentUserRef.update({
                         newUser: false
                     });
@@ -44,10 +53,11 @@ $(document).ready(function () {
 
     console.log("made it this far...");
 
-    $("#nextBtn").on("click", function (e) {
+    $(document).on("click", "#nextBtn", function (e) {
         e.preventDefault();
         console.log("#preferencesSubmit clicked");
         userPreferences.zipCode = $("#zipCode").val();
+
         //         currentUserRef.update(userPreferences) 
         collectBusData();
 
@@ -57,12 +67,21 @@ $(document).ready(function () {
         console.log("cog click");
         $("#input-modal").empty()
             .append(resetModal)
-            .modal();
+            .modal({
+                backdrop: 'static',
+                keyboard: false
+            });
     });
 
-    function updatePreferences(response) {
 
+
+
+
+
+    function updatePreferences(response) {
         console.log(response);
+        userPreferences.busInfo = response;
+        console.log(userPreferences);
         //this function needs to store the user's bus route-related preferences in firebase
     }
 
@@ -73,7 +92,81 @@ $(document).ready(function () {
         return BusTrackerModule.getPrefs(updatePreferences);
     }
 
+    $(document).on("click", "#submitBtn", function () {
+        $("#input-modal").modal("toggle")
+        //***this might be a bad idea!**//
+        //is it easiest to reload/remake our calls after all the prefs are saved/updated.. it kinda looks bad?
+        location.reload();
+        console.log("submit click")
+        database.ref("users").child(currentUserID).child("preferences").set(userPreferences)
 
-
+    })
 
 })
+
+
+//    --- Greetings Function  --- //
+
+$(document).ready(function () {
+    ////////// Function for determinng the time of the day //////////////////////
+
+
+    function getTime() {
+        var name = currentUser;
+        console.log("displayMessage Function is Running");
+
+        var data = [
+  [22, 'Working late, '],
+  [18, 'Good evening, '],
+  [12, 'Good afternoon, '],
+  [5, 'Good morning, '],
+  [0, 'Go to bed, ']
+]
+
+        let hr = new Date().getHours();
+
+        for (var i = 0; i < data.length; i++) {
+            console.log(i);
+            if (hr >= data[i][0]) {
+
+                $("#greeting-div").text(data[i][1] + name + "!");
+                break;
+            }
+        }
+    }
+    getTime();
+
+
+    // --- Quote Generator -- //
+
+
+    function quoteGenerator() {
+        var url = "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=1";
+
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            headers: {
+                'X-Mashape-Key': 'a1BCkvQWslmshGKud614cQI6JbRyp1DVOZNjsnsNfaVOrdTSuU'
+            },
+        }).done(function (data) {
+            console.log(data);
+            var quote = data.quote;
+            console.log(quote);
+            var author = data.author;
+            console.log(author);
+            $("#quote-content").append(quote);
+            $("#quote-author").append(author);
+        }).fail(function (err) {
+            throw err;
+        });
+
+    }
+    quoteGenerator();
+
+
+
+
+
+});

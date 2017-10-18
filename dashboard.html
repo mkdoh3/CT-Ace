@@ -40,28 +40,25 @@
         </div>
     </div>
     <div class="container-fluid site-wrapper">
-        <div class="row">
-            <div class="col-1">
-                <!--      <a href="#"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a> -->
+
+        <!--***Gotta move all these bootstrap margins(mt-) to css from better mobile styling-->
+        <div class="row mt-2 mb-4">
+            <div class="col-3 cog-div">
                 <a id="changeSettingsCog"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a>
             </div>
-            <div class="col-11 weather-div"><a href="#" class="weather-link" style="text-decoration: none; color:inherit"></a>
+            <div class="col-9 weather-div"><a href="#" class="weather-link"></a>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12 clock-div">
             </div>
         </div>
 
 
         <div class="row">
-            <div class="col-12 greeting-div mt-3">
-                Good morning, Michael
-            </div>
+            <div class="col-12 mt-3" id="greeting-div"></div>
         </div>
-
-
 
         <div class="row">
             <div class="col-md-6 col-sm-12 tracker-div mt-5">
@@ -110,64 +107,22 @@
                 </table>
             </div>
         </div>
-
-
         <div class="row">
-            <div class="col-12 quote-div mt-5">
+            <div class="col-12 quote-div">
                 <blockquote class="blockquote mb-0" id="randomQuote">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">Quote Generator goes here!</footer>
+                    <p id="quote-content"></p>
+                    <footer class="blockquote-footer" id="quote-author"></footer>
                 </blockquote>
             </div>
-            <div class="row bottom-row">
-                <div class="col-12">
-                    <p id="logo">by console.log-lady</p>
-                </div>
-
+        </div>
+        <div class="row bottom-row">
+            <div class="col-12">
+                <p id="logo">by console.log-lady</p>
             </div>
+
         </div>
 
     </div>
-
-
-
-
-
-    <!--
-          
-      <av class="navbar sticky-top navbar-expand-sm navbar-light bg-light col-lg-12">
-        <a class="navbar-brand" href="#">
-          <img src="assets/images/ds.png" width="30" height="30" class="d-inline-block align-top" alt=""><span class="full-name">Michael Doherty</span></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="justify-content-end" id="settingsLink">
-            <p>Settings</p>
-          </div>
-        </nav>
-      </div>
--->
-
-
-
-
-    <!--
-
-
-
-    <div class="icon thunder-storm">
-        <div class="cloud"></div>
-        <div class="lightning">
-            <div class="bolt"></div>
-            <div class="bolt"></div>
-        </div>
-    </div>
-
-
- 
-  
--->
-
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -184,7 +139,7 @@
 
     <script src="assets/js/BusTrackerModule.js"></script>
 
-    <script src="assets/js/firebase-pref.js"></script>
+    <!--    <script src="assets/js/firebase-pref.js"></script>-->
 
     <script src="assets/js/dashboard.js"></script>
 

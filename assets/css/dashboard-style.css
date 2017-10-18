@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-
 .site-wrapper {
     height: 100vh;
     background: url("../images/subway-background.jpeg") no-repeat center center fixed;
@@ -8,11 +7,14 @@
     overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 
 .settings-cog {
     text-decoration: none;
-    color: #f2f4f7;
-    padding: .5em 0 0 .75em;
+    color: #d0dfe4;
     opacity: 0.8;
 }
 
@@ -27,6 +29,14 @@
     padding-right: 2em
 }
 
+.weather-div,
+.cog-div,
+.quote-div {
+    background-color: rgba(79, 73, 73, 0.1);
+}
+
+
+
 
 #temperature {
     position: absolute;
@@ -38,6 +48,11 @@
 }
 
 .weather-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.weather-link:hover {
     text-decoration: none;
     color: inherit
 }
@@ -52,9 +67,10 @@
     -ms-flex-pack: center;
     justify-content: center;
 
+
 }
 
-.greeting-div {
+#greeting-div {
     text-align: center;
     color: #FFF;
     font-size: 2.25em;
@@ -68,7 +84,7 @@
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
-    padding-right: 3em;
+    padding-right: 5em;
 }
 
 .news-div {
@@ -78,11 +94,12 @@
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-start;
-    padding-left: 3em;
+    padding-left: 5em;
 }
 
 
 .quote-div {
+    margin-top: 4.5em;
     text-align: center;
     color: #FFF;
 
@@ -148,14 +165,6 @@
     font-size: .85em;
 }
 
-/*
-.bottom-row {
-    position: fixed;
-    bottom: 0;
-    left: .5em;
-    color: aliceblue;
-}
-*/
 
 /*small screen stylings*/
 
@@ -172,6 +181,22 @@
 @media (max-width: 376px) {
     .content-table {
         width: 350px;
+    }
+    .weather-div {
+        padding: 0;
+    }
+    #temperature {
+        right: 3.5em;
+        top: .2em;
+
+    }
+
+    .fa-cog {
+        padding: .15em;
+    }
+
+    #greeting-div {
+        font-size: 1.5em;
     }
 
 
