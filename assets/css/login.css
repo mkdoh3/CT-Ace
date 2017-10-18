@@ -3,17 +3,157 @@ body {
     padding: 0;
     background: url(../images/city_water_cloud_boat-11242.jpg!d) no-repeat center center;
     background-size: cover;
+    height: 100vh;
+    widows: 100vw;
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.background_blur{
+    height: 100%;
+    width: 100%
+    position: absolute;
+    background-color: rgba(0,0,0, 0.5);
+}
+
+.firebaseui-info-bar, .firebaseui-id-info-bar {
+    display: none;
 }
 
 .container {
-    margin-top: 20vh;
     width: 25%;
-    background-color: rgba(255, 255, 255, 0.9);
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.9);
     opacity: .9;
     border: .5em lightblue;
-    border-style: outset
+    border-style: outset;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container h1 {
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+.container h4 {
+    font-size: 1.5vh;
+    color: white;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    text-shadow: 2px 2px 2px green;
 }
 
 #firebaseui-auth-container {
     padding: .75em 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
 }
+
+#firebaseui-auth-container .logo {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.firebaseui-container, .firebaseui-page-provider-sign-in, .firebaseui-id-page-provider-sign-in{
+    padding-top: 25px;
+}
+
+
+
+@media only screen and (max-width: 1040px){
+
+*{
+    overflow: hidden;
+}
+
+
+ .container {
+     width: 50%;
+     background-color: rgba(0, 0, 0, 0.9);
+     opacity: .9;
+     border: .5em lightblue;
+     border-style: outset;
+     height: 60%
+ }
+
+
+ .container h4 {
+     font-size: 2vh;
+     color: white;
+     width: 90%;
+     margin: 0 auto;
+     padding: 0;
+     text-shadow: 2px 2px 2px green;
+ }
+
+
+
+ #firebaseui-auth-container .logo {
+     height: 100%;
+     width: 100%;
+     margin: 0 auto;
+
+ }
+
+ .container h4 {
+     font-size: 1.5vh;
+ }
+
+
+ .firebaseui-idp-list span{
+     font-size: 2vh;
+
+ }
+
+
+
+}
+
+
+  /*End of Media Query*/
+
+
+
+@media only screen and (max-width: 640px){
+
+.container {
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: .9;
+    border: .5em lightblue;
+    border-style: outset;
+    height: 60%
+}
+
+
+
+.container h4 {
+    font-size: 1.5vh;
+    color: white;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    text-shadow: 2px 2px 2px green;
+    height: 90%
+}
+
+
+.firebaseui-idp-list span{
+    font-size: 1.6vh;
+
+}
+
+
+}
+ /*End of Media Query*/
