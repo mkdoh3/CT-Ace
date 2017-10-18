@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+html, body {
+
+    height: 100%;
+}
+
 .site-wrapper {
     height: 100vh;
     background: url("../images/subway-background.jpeg") no-repeat center center fixed;
@@ -32,7 +37,10 @@
     margin-top: 4.5em;
 }
 
-.row-6 {}
+.row-6 {
+    position: absolute;
+    bottom: 0
+}
 
 
 
@@ -188,6 +196,13 @@
     font-size: .85em;
 }
 
+#logo{
+    height: 15%;
+    width: 20%;
+    margin-bottom: 0;
+
+}
+
 
 /*small screen stylings*/
 
@@ -198,7 +213,17 @@
         padding: 0;
 
     }
+    .row-6 {
+        position: relative;
+        bottom: 0
+    }
 
+    #logo{
+        height: 50%;
+        width: 50%;
+        margin-bottom: 0;
+
+    }
 }
 
 @media (max-width: 376px) {
@@ -220,6 +245,11 @@
         margin-top: 1.5em;
         background-color: rgba(50, 40, 40, 0.7);
 
+    }
+
+    .row-6 {
+        position: relative;
+        bottom: 0
     }
 
 
