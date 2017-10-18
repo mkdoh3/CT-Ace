@@ -15,3 +15,45 @@ h4,
 .modal-open .container {
     -webkit-filter: blur(500px) grayscale(90%);
 }
+
+.modal-header,
+h5,
+h3,
+h4 {
+    display: block !important
+}
+
+input,
+textarea,
+select,
+.form-control,
+#dropDowns {
+    -webkit-box-shadow: inset 1px 1px 2px 0 #707070 !important;
+    box-shadow: inset 1px 1px 4px 0 #707070 !important;
+    border-radius: 2% !important;
+    display: block !important;
+    width: 100%;
+
+    /*  -- Thanks http://www.colorzilla.com/gradient-editor  -- */
+    background: rgb(238, 238, 238);
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(238, 238, 238, 1)), color-stop(9%, rgba(238, 238, 238, 1)), to(rgba(238, 238, 238, 1))) !important;
+    background: linear-gradient(to bottom, rgba(238, 238, 238, 1) 0%, rgba(238, 238, 238, 1) 9%, rgba(238, 238, 238, 1) 100%) !important;
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+input:hover,
+textarea:hover,
+select:hover,
+.form-control:hover,
+#dropDowns:hover {
+    -webkit-box-shadow: inset 1px 1px 4px 0 #B3DDF2 !important;
+    box-shadow: inset 1px 1px 4px 0 #B3DDF2 !important;
+}
+
+#stop-select {
+    margin-top: 1em;
+    border-top: none;
+}

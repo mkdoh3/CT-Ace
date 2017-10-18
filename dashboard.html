@@ -22,27 +22,18 @@
     <!-- Modal per bootstrap guidelines it should be located near the top-->
     <div class="modal fade" id="input-modal" role="input form">
         <div class="modal-dialog">
-            Modal content
+            <!--            Modal content-->
             <div class="modal-content">
-                <div class="modal-header" style="padding:35px 50px;">
-                    <h4>Welcome New User!</h4>
-                    <h3>Please fill out the below form so we can build your dashboard :)</h3>
+                <div class="modal-header" id="modalText" style="padding:35px 50px;">
+                    <h3>Please Enter Zip Code for Weather Updates</h3>
                 </div>
                 <div class="modal-body" style="padding:40px 50px;">
                     <form role="form">
-                        <div class="form-group" id="routes">
-                            <label for="zipCode">Enter Zip Code for Weather Updates</label>
+                        <div class="form-group" id="dropDowns">
+<!--                        <label for="zipCode">Enter Zip Code for Weather Updates</label>-->
                             <input type="text" class="form-control" id="zipCode" placeholder="6-digit zip">
                         </div>
-                        <div class="form-group" id="directions">
-                            <label for="input2">input 2</label>
-                            <input type="text" class="form-control" id="input2" placeholder="Enter info">
-                        </div>
-                        <div class="form-group" id="stops">
-                            <label for="input3">input 3</label>
-                            <input type="text" class="form-control" id="input3" placeholder="Enter info">
-                        </div>
-                        <button class="btn btn-success btn-block" id="preferencesSubmit">Next</button>
+                        <button class="btn btn-success btn-block" id="nextBtn">Next</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -50,6 +41,7 @@
             </div>
         </div>
     </div>
+    <!--
 
     <div class="modal fade" id="busPref-modal" role="input form">
         <div class="modal-dialog">
@@ -63,13 +55,13 @@
                     <form role="form">
                         <div class="form-group" id="routes">
                             <label for="routes">Enter Bus Route</label>
-                            
+
                         </div>
                         <div class="form-group" id="directions">
-                           
+
                         </div>
                         <div class="form-group" id="stops">
-                            
+
                         </div>
                         <button class="btn btn-success btn-block" id="busPref-Submit">Next</button>
                     </form>
@@ -79,10 +71,11 @@
             </div>
         </div>
     </div>
+-->
     <div class="container-flex site-wrapper">
         <div class="row">
             <div class="col-1">
-          <!--      <a href="#"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a> -->
+                <!--      <a href="#"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a> -->
                 <a id="changeSettingsCog"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a>
             </div>
             <div class="col-11 weather-div"><a href="#" class="weather-link" style="text-decoration: none; color:inherit"></a>
@@ -219,7 +212,7 @@
     <script src="assets/js/flipclock.min.js"></script>
 
     <script src="assets/js/weather.js"></script>
-    
+
     <script src="assets/js/routes.js"></script>
 
     <script src="assets/js/BusTrackerModule.js"></script>
