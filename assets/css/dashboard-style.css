@@ -11,6 +11,30 @@
     display: none;
 }
 
+.row-1 {
+    margin-top: .5em;
+    margin-bottom: 1.5em;
+}
+
+.row-2 {
+    margin-top: 1.5em;
+}
+
+.row-3 {
+    margin-top: .75em;
+}
+
+.row-4 {
+    margin-top: 3em;
+}
+
+.row-5 {
+    margin-top: 4.5em;
+}
+
+.row-6 {}
+
+
 
 .settings-cog {
     text-decoration: none;
@@ -99,7 +123,6 @@
 
 
 .quote-div {
-    margin-top: 4.5em;
     text-align: center;
     color: #FFF;
 
@@ -179,6 +202,27 @@
 }
 
 @media (max-width: 376px) {
+    .row-2 {
+        margin-top: .25em;
+    }
+
+    .row-3 {
+        padding: .5em;
+        margin-top: .5em;
+        background-color: rgba(50, 40, 40, 0.8);
+    }
+
+    .row-4 {
+        margin-top: 1.5em;
+    }
+
+    .row-5 {
+        margin-top: 1.5em;
+        background-color: rgba(50, 40, 40, 0.7);
+
+    }
+
+
     .content-table {
         width: 350px;
     }
@@ -186,17 +230,30 @@
         padding: 0;
     }
     #temperature {
-        right: 3.5em;
-        top: .2em;
-
+        right: 3em;
+        top: .15em;
     }
 
     .fa-cog {
-        padding: .15em;
+        padding-top: .15em;
     }
 
     #greeting-div {
         font-size: 1.5em;
+    }
+
+    .icon {
+        /*
+        width: 4em;
+        height: 2em;
+*/
+        font-size: .4em;
+    }
+
+
+    .flip-clock-wrapper {
+        zoom: 0.9;
+        -moz-transform: scale(0.5)
     }
 
 

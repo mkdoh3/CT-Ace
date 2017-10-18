@@ -8,10 +8,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/dashboard-style.css">
     <link rel="stylesheet" href="assets/css/flipclock.css">
     <link rel="stylesheet" href="assets/css/weather.css">
     <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/dashboard-style.css">
     <!--    <link rel="stylesheet" href="assets/css/busTest.css">-->
     <script src="https://use.fontawesome.com/38591a8d48.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
@@ -41,27 +41,27 @@
     </div>
     <div class="container-fluid site-wrapper">
 
-        <!--***Gotta move all these bootstrap margins(mt-) to css from better mobile styling-->
-        <div class="row mt-2 mb-4">
+        <div class="row row-1">
             <div class="col-3 cog-div">
                 <a id="changeSettingsCog"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a>
             </div>
+            <!--          add link to weather based on zipCode-->
             <div class="col-9 weather-div"><a href="#" class="weather-link"></a>
             </div>
         </div>
 
-        <div class="row mt-4">
+        <div class="row row-2">
             <div class="col-12 clock-div">
             </div>
         </div>
 
 
-        <div class="row">
-            <div class="col-12 mt-3" id="greeting-div"></div>
+        <div class="row row-3">
+            <div class="col-12" id="greeting-div"></div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 col-sm-12 tracker-div mt-5">
+        <div class="row row-4">
+            <div class="col-md-6 col-sm-12 tracker-div">
                 <table class="table content-table">
                     <thead class="table-head">
                         <tr>
@@ -86,7 +86,7 @@
                 </table>
             </div>
 
-            <div class="col-md-6 col-sm-12 news-div mt-5">
+            <div class="col-md-6 col-sm-12 news-div">
                 <table class="table content-table">
                     <thead class="table-head">
                         <tr>
@@ -107,7 +107,8 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+
+        <div class="row row-5">
             <div class="col-12 quote-div">
                 <blockquote class="blockquote mb-0" id="randomQuote">
                     <p id="quote-content"></p>
@@ -115,7 +116,7 @@
                 </blockquote>
             </div>
         </div>
-        <div class="row bottom-row">
+        <div class="row row-6">
             <div class="col-12">
                 <p id="logo">by console.log-lady</p>
             </div>
@@ -138,8 +139,6 @@
     <script src="assets/js/routes.js"></script>
 
     <script src="assets/js/BusTrackerModule.js"></script>
-
-    <!--    <script src="assets/js/firebase-pref.js"></script>-->
 
     <script src="assets/js/dashboard.js"></script>
 
