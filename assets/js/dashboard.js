@@ -1,3 +1,36 @@
+//-- must do --//
+
+//tie-in bus tracker to html
+//tie-in news to html
+//time all api calls
+//input verification
+//add comments to code
+//write the readme
+//style login page
+
+//--debugging--//
+//need a way to handle what happens if a new user navigates directly to dashboard.html and skips login
+//need to move where the newUser===false is written to prevent bugs if the user navigates away from page before finishing setup
+
+
+//--features to be added before Saturday.. maybe:--//
+
+//logout button
+//change display name option
+//function to go back during preference setting
+//password reset
+//optimize mobile layout
+
+
+//--future features--//
+
+//train tracker
+//store multiple train and bus preferences and switch between them
+// SMS functionality -- notification for when its time to leave to catch the train/bus?
+
+
+
+
 const resetModal = "<div class='modal-dialog'><div class='modal-content'><div class='modal-header' id='modalText'><h3>Please Enter Zip Code for Weather Updates</h3></div><div class='modal-body'><form role='form'><div class='form-group' id='dropDowns'><input type='text' class='form-control' id='zipCode' placeholder='6-digit zip'></div><button class='btn btn-default btn-block' id='nextBtn'>Next</button></form></div></div></div>"
 
 const config = {
@@ -58,6 +91,14 @@ $(document).ready(function () {
         console.log("#preferencesSubmit clicked");
         userPreferences.zipCode = $("#zipCode").val();
 
+
+        //add code to modify display name here?
+        //ask if they want to use default? 
+
+
+
+
+
         //         currentUserRef.update(userPreferences) 
         collectBusData();
 
@@ -103,6 +144,8 @@ $(document).ready(function () {
     })
 
 })
+
+
 
 
 //    --- Greetings Function  --- //
@@ -164,9 +207,5 @@ $(document).ready(function () {
 
     }
     quoteGenerator();
-
-
-
-
-
+    sa
 });
