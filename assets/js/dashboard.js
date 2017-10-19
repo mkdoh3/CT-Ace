@@ -51,13 +51,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 						newUser: false
 					});
 				} else {
-					// main();
-					// updateArrivals();
-					// console.log("currentUser, new user false", currentUser);
+						//or else!
 				}
-				// main();
 			})
-		//else statement in case a user isnt logged in??
+		
+	}else{
+		window.location ="index.html";//redirect if not logged in
 	}
 });
 
