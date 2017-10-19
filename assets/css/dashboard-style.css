@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body {
+
+    height: 100%;
+}
+
+.site-wrapper {
+    height: 100vh;
+    background: url("../images/subway-background.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.row-1 {
+    margin-top: .5em;
+    margin-bottom: 1.5em;
+}
+
+.row-2 {
+    margin-top: 1.5em;
+}
+
+.row-3 {
+    margin-top: .75em;
+}
+
+.row-4 {
+    margin-top: 3em;
+}
+
+.row-5 {
+    margin-top: 4.5em;
+}
+
+.row-6 {
+    position: absolute;
+    bottom: 0
+}
+
+
+
+.settings-cog {
+    text-decoration: none;
+    color: #d0dfe4;
+    opacity: 0.8;
+}
+
+
+.weather-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding-right: 2em
+}
+
+.weather-div,
+.cog-div,
+.quote-div {
+    background-color: rgba(79, 73, 73, 0.1);
+}
+
+
+
+
+#temperature {
+    position: absolute;
+    right: 6em;
+    top: .5em;
+    color: #f2f4f7;
+    font-weight: 600;
+    font-size: 1.25em
+}
+
+.weather-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.weather-link:hover {
+    text-decoration: none;
+    color: inherit
+}
+
+
+
+.clock-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+
+}
+
+#greeting-div {
+    text-align: center;
+    color: #FFF;
+    font-size: 2.25em;
+    font-weight: 600;
+}
+
+.tracker-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding-right: 5em;
+}
+
+.news-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-start;
+    padding-left: 5em;
+}
+
+
+.quote-div {
+    text-align: center;
+    color: #FFF;
+
+}
+
+#randomQuote {
+    border: none;
+}
+
+.blockquote-footer {
+    color: aliceblue
+}
+
+/*bus + news styling*/
+
+.content-table {
+    border: .25em solid #ce1543;
+    opacity: .8;
+    width: 375px;
+}
+
+.table-head {
+    background-color: #007ac3 !important;
+    color: #fcfdff;
+}
+
+
+.table-body {
+    background-color: #fcfdff;
+    font-size: 1.25em;
+    font-weight: 600
+}
+
+#busNumber {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: left;
+    vertical-align: middle !important;
+}
+
+#stopInfo {
+    text-align: right;
+    padding-right: 1.5em;
+    font-size: 1.1em;
+    font-weight: 700;
+    vertical-align: middle !important
+}
+
+.busArrivalTime {
+    display: table-cell;
+    vertical-align: middle !important;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.busDestinationAndNumber {
+    text-align: right;
+    vertical-align: middle !important;
+}
+
+.busDestinationAndNumber span {
+    font-weight: 200;
+    font-size: .85em;
+}
+
+#logo{
+    height: 15%;
+    width: 20%;
+    margin-bottom: 0;
+
+}
+
+
+/*small screen stylings*/
+
+@media (max-width: 768px) {
+    .tracker-div,
+    .news-div {
+        justify-content: center;
+        padding: 0;
+
+    }
+    .row-6 {
+        position: relative;
+        bottom: 0
+    }
+
+    #logo{
+        height: 50%;
+        width: 50%;
+        margin-bottom: 0;
+
+    }
+}
+
+@media (max-width: 376px) {
+    .row-2 {
+        margin-top: .25em;
+    }
+
+    .row-3 {
+        padding: .5em;
+        margin-top: .5em;
+        background-color: rgba(50, 40, 40, 0.8);
+    }
+
+    .row-4 {
+        margin-top: 1.5em;
+    }
+
+    .row-5 {
+        margin-top: 1.5em;
+        background-color: rgba(50, 40, 40, 0.7);
+
+    }
+
+    .row-6 {
+        position: relative;
+        bottom: 0
+    }
+
+
+    .content-table {
+        width: 350px;
+    }
+    .weather-div {
+        padding: 0;
+    }
+    #temperature {
+        right: 3em;
+        top: .15em;
+    }
+
+    .fa-cog {
+        padding-top: .15em;
+    }
+
+    #greeting-div {
+        font-size: 1.5em;
+    }
+
+    .icon {
+        /*
+        width: 4em;
+        height: 2em;
+*/
+        font-size: .4em;
+    }
+
+
+    .flip-clock-wrapper {
+        zoom: 0.9;
+        -moz-transform: scale(0.5)
+    }
+
+
+}
+
+@media (max-width: 321px) {
+    .content-table {
+        width: 300px;
+    }
+}
+
+}
