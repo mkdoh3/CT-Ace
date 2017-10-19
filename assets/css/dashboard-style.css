@@ -187,7 +187,7 @@ html, body {
 }
 
 .busDestinationAndNumber {
-    text-align: right;
+    text-align: left;
     vertical-align: middle !important;
 }
 
