@@ -51,25 +51,68 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 $(document).ready(function () {
 
-    console.log("made it this far...");
+    function getBusInfo(){
+        let busInfo;
+        console.log("getBusInfo called");
+        database.ref("users").child(currentUserID).child("preferences").once("value", function (snapshot) {
+            busInfo =  snapshot.val().busInfo;
+        })
+
+        return busInfo;
+        // return busInfo;
+        //should return the busInfo portion of the user's stored preferences (an object)
+    }
+
+    function refreshArrivals(predictions){
+        console.log(predictions);
+        if ((predictions[0])==="error"){
+            console.log("error = ", predictions[1][0].msg);
+            return;
+        }
+        predictions.forEach(function(prediction){
+            let delay = prediction.dly;
+            let stopName = prediction.stpnm;
+            let time = prediction.prdctdn;
+            let routeNumber = prediction.rt;
+            let direction = prediction.rtdir;
+            let vehicleId = prediction.vid;
+            let destination = prediction.des;
+            var row = $("<tr>");
+            var arrivalCol = $("<td class='busArrivalTime'>").html("Arriving in: " + time + " minutes");
+            var vidAndDest = $("<span>" + vehicleId + "</span><br>" + destination);
+            var destinationCol = $("<td class = 'busDestinationAndNumber'>").html(vidAndDest);
+            $(row).append(arrivalCol).append(destinationCol);
+            $("#arrivalTable").append(row);
+
+            $("#busNumber").html(routeNumber);
+        });
+
+
+
+    }
+
+    function updateArrivals(){
+        let busInfo = getBusInfo();
+        console.log('busInfo', busInfo);
+        let routeNumber = busInfo.routeNumber;
+        let stopId = busInfo.stopId;
+        return BusTrackerModule.getPredictions(routeNumber, stopId, refreshArrivals);
+        //(routeNumber, stopId, optionalCallback = null)
+    }
+
+
+
 
     $(document).on("click", "#nextBtn", function (e) {
         e.preventDefault();
         console.log("#preferencesSubmit clicked");
         userPreferences.zipCode = $("#zipCode").val();
-
-
         //add code to modify display name here?
         //ask if they want to use default? 
-
-
-
-
-
-        //         currentUserRef.update(userPreferences) 
         collectBusData();
-
     });
+
+
 
     $("#changeSettingsCog").on("click", function () {
         console.log("cog click");
@@ -88,6 +131,7 @@ $(document).ready(function () {
 
     function updatePreferences(response) {
         console.log(response);
+
         userPreferences.busInfo = response;
         console.log(userPreferences);
         //this function needs to store the user's bus route-related preferences in firebase
@@ -95,19 +139,19 @@ $(document).ready(function () {
 
     function collectBusData() {
         console.log('collectBusData() called.');
-
         $("#nextBtn").hide()
         return BusTrackerModule.getPrefs(updatePreferences);
     }
+
 
     $(document).on("click", "#submitBtn", function () {
         $("#input-modal").modal("toggle")
         //***this might be a bad idea!**//
         //is it easiest to reload/remake our calls after all the prefs are saved/updated.. it kinda looks bad?
-        location.reload();
+        // location.reload();
         console.log("submit click")
         database.ref("users").child(currentUserID).child("preferences").set(userPreferences)
-
+        updateArrivals();
     })
 
 })

@@ -132,10 +132,11 @@ var BusTrackerModule = (function () {
                         console.log("optionalCallback was passed currentRequest", optionalCallback);
                         return optionalCallback(currentRequest);
 
-                    }
+                    }else{
                     console.log('currentRequest', currentRequest);
                     module.getPredictions(routeNumber, stopId, optionalCallback);
                     console.log('optionalCallback', optionalCallback)
+                    }
                 });
             stops.forEach(function (stop) {
                 var option = $("<option>").attr("value", stop.stpid + " " + stop.stpnm).text(stop.stpnm);
@@ -181,11 +182,7 @@ var BusTrackerModule = (function () {
             } else {
                 var error = predictionsResponse.error;
                 console.log('error', error);
-                if (optionalCallback !== null) {
-                    return optionalCallback([error, currentRequest]);
-                } else {
-                    return [error, currentRequest];
-                }
+                    return optionalCallback(["error", error, currentRequest]);
             }
         });
     }
