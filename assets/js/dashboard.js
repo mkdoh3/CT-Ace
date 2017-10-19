@@ -51,11 +51,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 $(document).ready(function () {
 
+    
     function getBusInfo(){
         let busInfo;
         console.log("getBusInfo called");
         database.ref("users").child(currentUserID).child("preferences").once("value", function (snapshot) {
             busInfo =  snapshot.val().busInfo;
+            if(busInfo === undefined){
+                
+            }
         })
 
         return busInfo;
@@ -72,19 +76,19 @@ $(document).ready(function () {
         predictions.forEach(function(prediction){
             let delay = prediction.dly;
             let stopName = prediction.stpnm;
-            let time = prediction.prdctdn;
+            let time = (prediction.prdctdn === "DUE") ? "Arriving" : prediction.prdctdn + " min";
             let routeNumber = prediction.rt;
             let direction = prediction.rtdir;
             let vehicleId = prediction.vid;
             let destination = prediction.des;
             var row = $("<tr>");
-            var arrivalCol = $("<td class='busArrivalTime'>").html("Arriving in: " + time + " minutes");
-            var vidAndDest = $("<span>" + vehicleId + "</span><br>" + destination);
+            var arrivalCol = $("<td class='busArrivalTime'>").html(time);
+            var vidAndDest = $("<span class='vehicleId'>#" + vehicleId + "</span><br><span class='destination'>" + direction + " to " + destination + "</span>");
             var destinationCol = $("<td class = 'busDestinationAndNumber'>").html(vidAndDest);
-            $(row).append(arrivalCol).append(destinationCol);
+            $(row).append(destinationCol).append(arrivalCol);
             $("#arrivalTable").append(row);
-
-            $("#busNumber").html(routeNumber);
+            $("#stopInfo").html(stopName);
+            $("#busNumber").html("Route# " + routeNumber);
         });
 
 
