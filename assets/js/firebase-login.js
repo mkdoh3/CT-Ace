@@ -5,7 +5,17 @@ const config = {
     projectId: "ct-ace",
     storageBucket: "ct-ace.appspot.com",
     messagingSenderId: "310061683501"
-};
+};//Mike's firebase
+
+// const config = {
+//     apiKey: "AIzaSyCivRfgDQux9l4K9QGWsNuMnDy-zD0QAaw",
+//     authDomain: "cta-dash.firebaseapp.com",
+//     databaseURL: "https://cta-dash.firebaseio.com",
+//     projectId: "cta-dash",
+//     storageBucket: "",
+//     messagingSenderId: "195672621360"
+//   };//Dennis' firebase
+  
 firebase.initializeApp(config);
 
 const database = firebase.database()

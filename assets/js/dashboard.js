@@ -7,7 +7,17 @@ const config = {
     projectId: "ct-ace",
     storageBucket: "ct-ace.appspot.com",
     messagingSenderId: "310061683501"
-};
+};//Mike's firebase
+
+// const config = {
+//     apiKey: "AIzaSyCivRfgDQux9l4K9QGWsNuMnDy-zD0QAaw",
+//     authDomain: "cta-dash.firebaseapp.com",
+//     databaseURL: "https://cta-dash.firebaseio.com",
+//     projectId: "cta-dash",
+//     storageBucket: "",
+//     messagingSenderId: "195672621360"
+//   };//Dennis' firebase
+  
 firebase.initializeApp(config);
 
 const database = firebase.database();
@@ -51,17 +61,24 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 $(document).ready(function () {
 
-    
+    function setTimer (nSeconds){
+        console.log("setTimer called");
+        let timer = setInterval(function(){
+            updateArrivals();
+        }, nSeconds * 1000);
+    }
+
+    setTimer(10);
+
     function getBusInfo(){
         let busInfo;
         console.log("getBusInfo called");
-        database.ref("users").child(currentUserID).child("preferences").once("value", function (snapshot) {
+        database.ref("users").child(currentUserID).child("preferences").on("value", function (snapshot) {
             busInfo =  snapshot.val().busInfo;
             if(busInfo === undefined){
-                
+                return null;
             }
         })
-
         return busInfo;
         // return busInfo;
         //should return the busInfo portion of the user's stored preferences (an object)
@@ -71,8 +88,12 @@ $(document).ready(function () {
         console.log(predictions);
         if ((predictions[0])==="error"){
             console.log("error = ", predictions[1][0].msg);
+            var errorRow = $("<tr>").html(predictions[1][0].msg);
+            $("#arrivalTable").empty().append(errorRow);
             return;
         }
+
+        $("#arrivalTable").empty();
         predictions.forEach(function(prediction){
             let delay = prediction.dly;
             let stopName = prediction.stpnm;
@@ -90,18 +111,18 @@ $(document).ready(function () {
             $("#stopInfo").html(stopName);
             $("#busNumber").html("Route# " + routeNumber);
         });
-
-
-
     }
 
     function updateArrivals(){
         let busInfo = getBusInfo();
         console.log('busInfo', busInfo);
+        if(busInfo === undefined){
+            console.log("busInfo undefined");
+            return;
+        }
         let routeNumber = busInfo.routeNumber;
         let stopId = busInfo.stopId;
         return BusTrackerModule.getPredictions(routeNumber, stopId, refreshArrivals);
-        //(routeNumber, stopId, optionalCallback = null)
     }
 
 
@@ -128,7 +149,15 @@ $(document).ready(function () {
             });
     });
 
-
+    function openModal(){
+        console.log("openModal called");
+        $("#input-modal").empty()
+            .append(resetModal)
+            .modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+    }
 
 
 
