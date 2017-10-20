@@ -60,7 +60,9 @@ var BusTrackerModule = (function () {
     function routesDropdown(routesArray, optionalCallback = null) {
         $(idOfPanelTitleDiv).html("<h5>Bus Preferences</h5><h3>Select A Route</h3>");
         $(idOfDropdownDiv).fadeOut(1).empty()
+        var firstOption = $("<option>").attr("value", null).text("-  bus route  -");
         var dropdown = $("<select required id='route-select' size=6>")
+        dropdown.append(firstOption)
             .change(function () { //event listener to call directionsDropdown once route is selected
                 $(idOfDropdownDiv).fadeOut(1);
                 var route = $(this).val();
@@ -85,7 +87,7 @@ var BusTrackerModule = (function () {
             var dropdown = $("<select required id='direction-select'>");
             dropdown.append($("<option>")
                     .attr("value", null)
-                    .text("direction"))
+                    .text("-  direction  -"))
                 .change(function () { //event listener to call stopsDropdown once direction is selected
                     var direction = $(this).val();
                     currentRequest.direction = direction;
@@ -111,9 +113,9 @@ var BusTrackerModule = (function () {
         // console.log("optionalCallback passed to stopsDropdown", optionalCallback);
         queryCTA("getstops", ("rt=" + routeNumber + "&dir=" + direction), (function (response) {
             var stops = response["bustime-response"].stops;
+            var firstOption = $("<option>").attr("value", null).text("-  bus stop  -");
             var dropdown = $("<select required id='stop-select' size=6>")
-                .attr("value", null)
-                .text("bus stop location")
+            dropdown.append(firstOption)
                 .change(function () { //event listener to call getPredictions once stop is selected
                     var value = $(this).val().split(" ");
                     var stopId = value[0];
