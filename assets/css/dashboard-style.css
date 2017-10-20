@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html, body {
-    height: 100vh;
+    height: 100%;
 }
 
 .site-wrapper {
-    height: 100vh;
+    height: 100%;
     background: url("../images/subway-background.jpeg") no-repeat center center fixed;
     background-size: cover;
     overflow-x: hidden;
@@ -202,8 +202,7 @@ html, body {
     width: 20%;
     position: absolute;
     bottom: 0;
-
-
+    margin-left: 1em;
 }
 
 
@@ -217,12 +216,22 @@ html, body {
 
     }
 
+}
+
+
+@media (max-width: 500px) and (min-width: 321px) {
+    .content-table {
+        width: 300px;
+    }
+
     #logo{
         height: 20%;
-        width: 50%;
+        width: 30%;
         margin-bottom: 0;
-
+        margin-left: 10px;
     }
+}
+
 }
 
 @media (max-width: 376px) {
@@ -244,11 +253,6 @@ html, body {
         margin-top: 1.5em;
         background-color: rgba(50, 40, 40, 0.7);
 
-    }
-
-    .row-6 {
-        position: relative;
-        bottom: 0
     }
 
 
@@ -283,6 +287,13 @@ html, body {
 @media (max-width: 321px) {
     .content-table {
         width: 300px;
+    }
+
+    #logo{
+        height: 10%;
+        width: 30%;
+        margin-bottom: 0;
+        margin-left: 10px;
     }
 }
 
