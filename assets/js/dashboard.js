@@ -244,7 +244,7 @@ function main() {
             quoteGenerator();
             updateArrivals();
             updateWeather();
-            setTimer(10);
+            setTimer(30);
         }
     }) //end of long $(document).ready
 } //end of main
