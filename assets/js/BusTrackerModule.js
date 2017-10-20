@@ -60,7 +60,7 @@ var BusTrackerModule = (function () {
     function routesDropdown(routesArray, optionalCallback = null) {
         $(idOfPanelTitleDiv).html("<h5>Bus Preferences</h5><h3>Select A Route</h3>");
         $(idOfDropdownDiv).fadeOut(1).empty()
-        var dropdown = $("<select required id='route-select' size=6>")
+        var dropdown = $("<select required id='route-select'>")
         dropdown.append($("<option>")
             .attr("value", null)
             .text("-  bus route  -"))
