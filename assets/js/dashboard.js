@@ -55,8 +55,6 @@ firebase.auth().onAuthStateChanged(function (user) {
                         backdrop: 'static',
                         keyboard: false
                     });
-                } else {
-                    window.location = "index.html"; //to be extra extra sure
                 }
             })
 
