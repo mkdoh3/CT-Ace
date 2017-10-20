@@ -45,10 +45,6 @@ firebase.auth().onAuthStateChanged(function (user) {
                 console.log('currentUser', currentUser);
                 userName = currentUser.displayName;
                 main();
-                // console.log("user fb reference: ", currentUserRef)
-                // console.log("user fb ID: ", currentUserID)
-                // console.log("user fb object: ", currentUser)
-                // console.log("user display name: ", userName)
                 if (currentUser.newUser === true) {
                     $("#welcomeUser").html("Welcome " + currentUser.displayName + "!");
                     $("#input-modal").modal({
@@ -66,12 +62,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
 function main() {
-    // updateArrivals();
     $(document).ready(function () {
         quoteGenerator();
 
         function setTimer(nSeconds) {
-            // console.log("setTimer called");
             let timer = setInterval(function () {
                 updateWeather();
                 updateArrivals();
@@ -79,14 +73,14 @@ function main() {
         }
 
         function getBusInfo() {
-            let busInfo;
+            let busInfo = currentUser.preferences.busInfo
             // console.log("getBusInfo called");
-            database.ref("users").child(currentUserID).child("preferences").on("value", function (snapshot) {
-                busInfo = snapshot.val().busInfo;
-                if (busInfo === undefined) {
-                    return null;
-                }
-            })
+            //            database.ref("users").child(currentUserID).child("preferences").on("value", function (snapshot) {
+            //                busInfo = snapshot.val().busInfo;
+            if (busInfo === undefined) {
+                return null;
+            }
+
             return busInfo;
             // return busInfo;
             //should return the busInfo portion of the user's stored preferences (an object)
@@ -129,8 +123,10 @@ function main() {
         }
 
         function updateArrivals() {
+            console.log("arrivals updating")
             let busInfo = getBusInfo();
             // console.log('busInfo', busInfo);
+            console.log("updt arrvls bus info", busInfo)
             if (busInfo === undefined) {
                 // console.log("busInfo undefined");
                 return;
@@ -143,7 +139,6 @@ function main() {
         $(document).on("click", "#nextBtn", function (e) {
             e.preventDefault();
             if (validZips.indexOf($("#zipCode").val()) > -1) {
-                console.log("valid zipcode")
                 userPreferences.zipCode = $("#zipCode").val();
                 //add code to modify display name here?
                 //ask if they want to use default? 
@@ -180,7 +175,6 @@ function main() {
             currentUserRef.once("value")
                 .then(function (snapshot) {
                     currentUser = snapshot.val();
-                    quoteGenerator();
                     updateArrivals();
                     updateWeather();
                     setTimer(10);
@@ -206,11 +200,14 @@ function main() {
             let hr = new Date().getHours();
 
             for (var i = 0; i < data.length; i++) {
-                // console.log(i);
                 if (hr >= data[i][0]) {
+                    if ($(window).width() < 376) {
+                        $("#greeting-div").html(data[i][1] + "<br>" + name + "!");
+                    } else {
+                        $("#greeting-div").html(data[i][1] + name + "!");
+                        break;
+                    }
 
-                    $("#greeting-div").text(data[i][1] + name + "!");
-                    break;
                 }
             }
         }
@@ -240,6 +237,7 @@ function main() {
         }
 
         if (currentUser.newUser === false) {
+            console.log("hello again")
             updateArrivals();
             updateWeather();
             setTimer(30);
