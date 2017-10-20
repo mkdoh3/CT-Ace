@@ -23,7 +23,6 @@
 
 
 
-
 //--features to be added by Saturday.. maybe:--//
 //logout button
 //change display name option
@@ -31,7 +30,6 @@
 //password reset
 //better optimize mobile layout
 //consolidate and minify master branch js and style files
-
 
 
 

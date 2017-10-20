@@ -13,8 +13,6 @@ var BusTrackerModule = (function () {
     //change values, if needed, to match HTML//
     const idOfPanelTitleDiv = "#modalText";
     const idOfDropdownDiv = "#dropDowns";
-    //    const idOfDirectionsDiv = "#directions";
-    //    const idOfStopsDiv = "#stops";
     const idOfOutputPanel = "#output";
 
     //routes is a global variable in routes.js
@@ -129,10 +127,10 @@ var BusTrackerModule = (function () {
                         // console.log("optionalCallback was passed currentRequest", optionalCallback);
                         return optionalCallback(currentRequest);
 
-                    }else{//else is 
-                    // console.log('currentRequest', currentRequest);
-                    module.getPredictions(routeNumber, stopId, optionalCallback);
-                    // console.log('optionalCallback', optionalCallback)
+                    } else { //else is 
+                        // console.log('currentRequest', currentRequest);
+                        module.getPredictions(routeNumber, stopId, optionalCallback);
+                        // console.log('optionalCallback', optionalCallback)
                     }
                 });
             stops.forEach(function (stop) {
@@ -179,7 +177,7 @@ var BusTrackerModule = (function () {
             } else {
                 var error = predictionsResponse.error;
                 // console.log('error', error);
-                    return optionalCallback(["error", error, currentRequest]);
+                return optionalCallback(["error", error, currentRequest]);
             }
         });
     }
