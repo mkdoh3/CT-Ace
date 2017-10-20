@@ -164,8 +164,8 @@ var BusTrackerModule = (function () {
 
     //returns an array of predicted objects containing bus arrival times and other info
     module.getPredictions = function (routeNumber, stopId, optionalCallback = null) {
-        // console.log('getPredictions called.');
-        queryCTA("getpredictions", ("rt=" + routeNumber + "&stpid=" + stopId + "&top=4"), function (response) {
+        //        console.log('getPredictions called.');
+        queryCTA("getpredictions", ("rt=" + routeNumber + "&stpid=" + stopId + "&top=3"), function (response) {
             var predictionsResponse = response["bustime-response"];
             if (predictionsResponse.hasOwnProperty("prd")) {
                 var predictions = predictionsResponse.prd;
