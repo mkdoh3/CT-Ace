@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="assets/css/weather.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/dashboard-style.css">
-    <!--    <link rel="stylesheet" href="assets/css/busTest.css">-->
     <script src="https://use.fontawesome.com/38591a8d48.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 
@@ -25,8 +24,8 @@
             <!--            Modal content-->
             <div class="modal-content">
                 <div class="modal-header" id="modalText">
-                    <h2>Welcome displayName!</h2>
-                    <h3>Please Enter Zip Code for Weather Updates</h3>
+                    <h2 id="welcomeUser"></h2>
+                    <h3>Please Enter Your Chicago Zipcode for Weather Updates</h3>
                 </div>
                 <div class="modal-body">
                     <form role="form">
@@ -46,7 +45,7 @@
                 <a id="changeSettingsCog"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a>
             </div>
             <!--          add link to weather based on zipCode-->
-            <div class="col-9 weather-div"><a href="#" class="weather-link"></a>
+            <div class="col-9 weather-div"><a href="#" class="weather-link" target="_blank"></a>
             </div>
         </div>
 
@@ -70,18 +69,6 @@
                         </tr>
                     </thead>
                     <tbody class="table-body" id="arrivalTable">
-                        <!-- <tr>
-                            <td class="busArrivalTime">Arriving in: 4 mins</td>
-                            <td class="busDestinationAndNumber"><span>#6603</span> <br/> Chicago</td>
-                        </tr>
-                        <tr>
-                            <td class="busArrivalTime"> Arriving in: 6 mins</td>
-                            <td class="busDestinationAndNumber"><span>#6603</span> <br/> Chicago</td>
-                        </tr>
-                        <tr>
-                            <td class="busArrivalTime">Arriving in: 8 mins</td>
-                            <td class="busDestinationAndNumber"><span>#6603</span> <br/> Chicago</td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -117,9 +104,11 @@
             </div>
         </div>
         <div class="row row-6">
-                <img id="logo" src = "assets\images\ctaDash.png" />
-        </div>
+            <div class="col-12 logo-div">
 
+                <img id="logo" src="assets/images/ctaDash.png" alt="logo">
+            </div>
+        </div>
     </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
@@ -138,8 +127,6 @@
     <script src="assets/js/BusTrackerModule.js"></script>
 
     <script src="assets/js/dashboard.js"></script>
-
-<!--     <script src="assets/js/newstest.js"></script> -->
 
 
 </body>

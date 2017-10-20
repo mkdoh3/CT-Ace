@@ -1,11 +1,5 @@
-$(document).ready(function () {
-    // console.log("current user", currentUser)
-    console.log("weather function is running");
-
-    //    var zip = currentUser.zipCode;
-
-    //we'll have to figure out how to make all of these different api calls
-    //currently when the weather js runs currentUser.zipCode is undefined and isnt defined until after the fact
+function updateWeather() {
+    let zip = currentUser.preferences.zipCode;
 
     let thunderstorm = "<p id='temperature'></p><div class='icon thunder-storm'><div class='cloud'></div><div class='lightning'><div class='bolt'></div><div class='bolt'></div></div></div>"
 
@@ -45,12 +39,8 @@ $(document).ready(function () {
 
 
 
-
-
-
-    var zip = 60643;
-    var apiKey = "7a6a7145f6a1c220db94cc631bef319e";
-    var url = "http://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",&APPID=" + apiKey;
+    const apiKey = "7a6a7145f6a1c220db94cc631bef319e";
+    let url = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",&APPID=" + apiKey;
     // Ajax call to weather API
 
     $.ajax({
@@ -61,26 +51,26 @@ $(document).ready(function () {
         console.log(response);
 
         // assign reponse to weather weatherAPIObject
-        var weatherAPIObject = response;
+        let weatherAPIObject = response;
 
-        // Retrive current temperature and convert it to fahrenheight
-        var kelvinTemperature = weatherAPIObject.list[0].main.temp;
+        // Retrive current temperature and convert it to fahrenheit
+        let kelvinTemperature = weatherAPIObject.list[0].main.temp;
 
-        //fixed conversion math and included html for the fahrenheight symbol
+        //fixed conversion math and included html for the fahrenheit symbol
 
-        var fahrenheight = Math.round(((kelvinTemperature - 273.15) * 1.8) + 32)
+        let fahrenheit = Math.round(((kelvinTemperature - 273.15) * 1.8) + 32)
 
         // Retrive Icon code
-        var iconCode = weatherAPIObject.list[0].weather[0].icon;
+        let iconCode = weatherAPIObject.list[0].weather[0].icon;
         // Build Icon link
         //        var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
 
         $(".weather-link").html(weatherIcons[iconCode])
         $(".weather-link").attr("href", weatherLink)
-        $("#temperature").html(fahrenheight + " &#8457")
+        $("#temperature").html(fahrenheit + " &#8457")
 
 
     });
-
-}); // End Doucment.Ready();
+}
+// updateWeather();

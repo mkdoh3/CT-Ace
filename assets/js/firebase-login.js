@@ -45,8 +45,9 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 firebase.auth().onAuthStateChanged(function () {
     var user = firebase.auth().currentUser;
+    console.log('user', user);
     currentUserID = user.uid
-    console.log(currentUserID)
+    console.log("currentUserID = ", currentUserID);
     if (user != null) {
         database.ref("users").child(user.uid).set({
             email: user.email,
