@@ -36,6 +36,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         currentUserRef.once("value")
             .then(function (snapshot) {
                 currentUser = snapshot.val();
+                console.log('currentUser', currentUser);
                 userName = currentUser.displayName;
                 main();
                 // console.log("user fb reference: ", currentUserRef)
@@ -47,9 +48,9 @@ firebase.auth().onAuthStateChanged(function (user) {
                         backdrop: 'static',
                         keyboard: false
                     });
-                    currentUserRef.update({
-                        newUser: false
-                    });
+                    // currentUserRef.update({
+                    //     newUser: true
+                    // });
                 } else {
                     //or else!
                 }
@@ -68,11 +69,10 @@ function main() {
         function setTimer(nSeconds) {
             // console.log("setTimer called");
             let timer = setInterval(function () {
+                updateWeather();
                 updateArrivals();
             }, nSeconds * 1000);
         }
-
-        setTimer(10);
 
         function getBusInfo() {
             let busInfo;
@@ -136,9 +136,6 @@ function main() {
             return BusTrackerModule.getPredictions(routeNumber, stopId, refreshArrivals);
         }
 
-
-
-
         $(document).on("click", "#nextBtn", function (e) {
             e.preventDefault();
             // console.log("#preferencesSubmit clicked");
@@ -147,8 +144,6 @@ function main() {
             //ask if they want to use default? 
             collectBusData();
         });
-
-
 
         $("#changeSettingsCog").on("click", function () {
             // console.log("cog click");
@@ -176,8 +171,19 @@ function main() {
             //is it easiest to reload/remake our calls after all the prefs are saved/updated.. it kinda looks bad?
             // location.reload();
             // console.log("submit click")
-            database.ref("users").child(currentUserID).child("preferences").set(userPreferences)
-            updateArrivals();
+            currentUserRef.update({
+                        newUser: false
+                    });
+            database.ref("users").child(currentUserID).child("preferences").set(userPreferences);
+            currentUserRef.once("value")
+            .then(function (snapshot) {
+                currentUser = snapshot.val();
+                quoteGenerator();
+                updateArrivals();
+                updateWeather();
+                setTimer(10);
+            });
+            
         })
 
         //    --- Greetings Function  --- //
@@ -232,9 +238,13 @@ function main() {
             }).fail(function (err) {
                 throw err;
             });
-
         }
-        quoteGenerator();
-        updateArrivals();
+
+        if(currentUser.newUser === false){
+            quoteGenerator();
+            updateArrivals();
+            updateWeather();
+            setTimer(10);
+        }
     }) //end of long $(document).ready
 } //end of main
