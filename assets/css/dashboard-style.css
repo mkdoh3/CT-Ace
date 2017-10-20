@@ -2,12 +2,12 @@
 
 html,
 body {
-    height: 100%;
+    height: 100vh;
 }
 
 .site-wrapper {
     position: relative;
-    height: 100%;
+    height: 100vh;
     background: url("../images/subway-background.jpeg") no-repeat center center fixed;
     background-size: cover;
     overflow-x: hidden;
@@ -35,10 +35,13 @@ body {
 }
 
 .row-5 {
-    margin-top: 4.5em;
+    margin-top: 4em;
 }
 
-.row-6 {}
+.row-6 {
+    margin-top: 3.5em;
+
+}
 
 
 
@@ -194,24 +197,28 @@ body {
     font-size: .85em;
 }
 
+.logo-div {}
+
 #logo {
-    margin-top: 3.5em;
-    height: 150px;
-    width: 300px;
+    height: 160px;
+    width: 310px;
 }
 
 
 /*small screen stylings*/
+
 @media (max-width: 1200px) {
-    .logo-div{
-        
-    text-align: center;
+    .logo-div {
+
+        text-align: center;
     }
 }
 
 @media (max-width: 768px) {
     .tracker-div,
     .news-div {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         padding: 0;
 
@@ -224,13 +231,13 @@ body {
         margin-top: 0;
     }
 
-}
+
 
 }
 
 @media (max-width: 376px) {
     .row-2 {
-        margin-top: .25em;
+        margin-top: 0;
     }
 
     .row-3 {
@@ -244,21 +251,21 @@ body {
     }
 
     .row-5 {
-        margin-top: 1.5em;
-        background-color: rgba(50, 40, 40, 0.7);
-
+        margin-top: 0 !important;
     }
-
 
     .content-table {
         width: 350px;
     }
+
     .weather-div {
-        padding: 0;
+        padding-right: 0em
     }
+
     #temperature {
-        right: 3em;
-        top: .15em;
+        font-size: 1.15em;
+        right: 3.5em;
+        top: .1em;
     }
 
     .fa-cog {
@@ -281,6 +288,46 @@ body {
 @media (max-width: 321px) {
     .content-table {
         width: 300px;
+    }
+    #logo {
+        height: 140px;
+        width: 280px;
+    }
+    .flip-clock-wrapper {
+        zoom: 0.9;
+        -moz-transform: scale(0.5)
+    }
+    #greeting-div {
+        font-size: 1.5em;
+        background-color: rgba(50, 40, 40, 0.8);
+
+    }
+
+    .weather-div {
+        padding-right: 0 !important;
+    }
+
+
+    #temperature {
+        font-size: 1em;
+        right: 4.15em;
+        top: .1em;
+    }
+
+    .row-2 {
+        margin-top: 0;
+    }
+
+    .row-4 {
+        margin-top: 1em;
+    }
+
+    .row-5 {
+        margin-top: 1em;
+    }
+
+    .row-6 {
+        margin-top: 0;
     }
 
 }
