@@ -65,8 +65,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 function main() {
     // updateArrivals();
     $(document).ready(function () {
-        updateWeather();
-
         function setTimer(nSeconds) {
             // console.log("setTimer called");
             let timer = setInterval(function () {
