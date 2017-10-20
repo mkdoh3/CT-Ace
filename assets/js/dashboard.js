@@ -180,7 +180,6 @@ function main() {
             currentUserRef.once("value")
                 .then(function (snapshot) {
                     currentUser = snapshot.val();
-                    quoteGenerator();
                     updateArrivals();
                     updateWeather();
                     setTimer(10);
@@ -208,9 +207,13 @@ function main() {
             for (var i = 0; i < data.length; i++) {
                 // console.log(i);
                 if (hr >= data[i][0]) {
+                    if ($(window).width() < 376) {
+                        $("#greeting-div").html(data[i][1] + "<br>" + name + "!");
+                    } else {
+                        $("#greeting-div").html(data[i][1] + name + "!");
+                        break;
+                    }
 
-                    $("#greeting-div").text(data[i][1] + name + "!");
-                    break;
                 }
             }
         }
