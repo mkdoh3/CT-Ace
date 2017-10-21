@@ -5,7 +5,7 @@ const config = {
     projectId: "ct-ace",
     storageBucket: "ct-ace.appspot.com",
     messagingSenderId: "310061683501"
-};//Mike's firebase
+}; //Mike's firebase
 
 // const config = {
 //     apiKey: "AIzaSyCivRfgDQux9l4K9QGWsNuMnDy-zD0QAaw",
@@ -15,7 +15,7 @@ const config = {
 //     storageBucket: "",
 //     messagingSenderId: "195672621360"
 //   };//Dennis' firebase
-  
+
 firebase.initializeApp(config);
 
 const database = firebase.database()
@@ -27,7 +27,7 @@ const uiConfig = {
     signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+//          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
   //          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
 //            firebase.auth.GithubAuthProvider.PROVIDER_ID,
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
