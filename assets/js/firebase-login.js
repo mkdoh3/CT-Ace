@@ -21,6 +21,8 @@ firebase.initializeApp(config);
 const database = firebase.database()
 
 
+//open source firebase ui auth handling
+
 
 const uiConfig = {
     signInSuccessUrl: 'dashboard.html',
@@ -43,7 +45,8 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#firebaseui-auth-container', uiConfig);
 
 
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+
+firebase.auth().onAuthStateChanged(function () {
 
     var user = firebase.auth().currentUser;
     console.log('user', user);
@@ -57,11 +60,5 @@ firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (
         })
     }
 
-});
 
-
-
-
-
-//firebase.auth().onAuthStateChanged(function () {
-//})
+})

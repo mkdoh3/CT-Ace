@@ -74,8 +74,6 @@ function main() {
 
         function getBusInfo() {
             let busInfo = currentUser.preferences.busInfo
-            //            database.ref("users").child(currentUserID).child("preferences").on("value", function (snapshot) {
-            //                busInfo = snapshot.val().busInfo;
             if (busInfo === undefined) {
                 return null;
             }
@@ -196,9 +194,6 @@ function main() {
 
             for (var i = 0; i < data.length; i++) {
                 if (hr >= data[i][0]) {
-                    //                    if ($(window).width() < 376) {
-                    //                        $("#greeting-div").html(data[i][1] + "<br>" + name + "!");
-                    //                    } else {
                     $("#greeting-div").html("<p>" + data[i][1] +
                         "</p>&nbsp<p>" + name + "!</p");
                     break;
