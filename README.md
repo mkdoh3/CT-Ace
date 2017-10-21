@@ -3,7 +3,7 @@
 
 # CTA - Dash
 
-CTA-Dash is a client-side application that allows users to store and track their Chicago bus routes. When a user log's into his or her account, they are greeted with a personalized message, local weather and news updates.  
+CTA-Dash is a client-side application that allows users to store and track their Chicago bus routes, local weather, and news on a sleek dashboard style interface. One first login, the user will be prompted to input preferences corresponding to the information they would like to track. Then on subsequent logins, users are greeted with a personalized message, local weather, news updates and even a quote of the day.  
 
 
 ## Installation
