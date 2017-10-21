@@ -56,23 +56,40 @@
 
 
         <div class="row row-3">
-            <div class="col-12" id="greeting-div"></div>
+            <div class="col-12 greeting-wrapper">
+                <div id="greeting-div"></div>
+            </div>
         </div>
 
         <div class="row row-4">
             <div class="col-md-6 col-sm-12 tracker-div">
-                <table class="table content-table">
-                    <thead class="table-head">
-                        <tr>
-                            <th id="busNumber">Loading...</th>
-                            <th id="stopInfo"><br></th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-body" id="arrivalTable">
-                    </tbody>
-                </table>
+                <div class="card content-card">
+                    <table class="table">
+                        <thead class="table-head">
+                            <tr>
+                                <th id="busNumber">Loading...</th>
+                                <th id="stopInfo"><br></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body" id="arrivalTable">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
+
+            <div class="col-md-6 col-sm-12 news-div">
+                <div class="card content-card">
+                    <div class="card-header table-head">Local News</div>
+                    <div class="card-block" id=newsobject>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!--
             <div class="col-md-6 col-sm-12 news-div">
                 <table class="table content-table">
                     <thead class="table-head">
@@ -93,6 +110,7 @@
                     </tbody>
                 </table>
             </div>
+-->
         </div>
 
         <div class="row row-5">
@@ -121,6 +139,8 @@
     <script src="assets/js/flipclock.min.js"></script>
 
     <script src="assets/js/weather.js"></script>
+
+    <script src="assets/js/news.js"></script>
 
     <script src="assets/js/routes.js"></script>
 

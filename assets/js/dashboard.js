@@ -74,7 +74,6 @@ function main() {
 
         function getBusInfo() {
             let busInfo = currentUser.preferences.busInfo
-            // console.log("getBusInfo called");
             //            database.ref("users").child(currentUserID).child("preferences").on("value", function (snapshot) {
             //                busInfo = snapshot.val().busInfo;
             if (busInfo === undefined) {
@@ -123,10 +122,7 @@ function main() {
         }
 
         function updateArrivals() {
-            console.log("arrivals updating")
             let busInfo = getBusInfo();
-            // console.log('busInfo', busInfo);
-            console.log("updt arrvls bus info", busInfo)
             if (busInfo === undefined) {
                 // console.log("busInfo undefined");
                 return;
@@ -177,7 +173,8 @@ function main() {
                     currentUser = snapshot.val();
                     updateArrivals();
                     updateWeather();
-                    setTimer(10);
+                    updateNews();
+                    setTimer(30);
                 });
 
         })
@@ -187,26 +184,25 @@ function main() {
 
         function getTime() {
             var name = userName;
-            // console.log("displayMessage Function is Running");
-
             var data = [
-				[22, 'Working late, '],
-				[18, 'Good evening, '],
-				[12, 'Good afternoon, '],
-				[5, 'Good morning, '],
-				[0, 'Go to bed, ']
+				[22, 'Working late,'],
+				[18, 'Good evening,'],
+				[12, 'Good afternoon,'],
+				[5, 'Good morning,'],
+				[0, 'Go to bed,']
 			]
 
             let hr = new Date().getHours();
 
             for (var i = 0; i < data.length; i++) {
                 if (hr >= data[i][0]) {
-                    if ($(window).width() < 376) {
-                        $("#greeting-div").html(data[i][1] + "<br>" + name + "!");
-                    } else {
-                        $("#greeting-div").html(data[i][1] + name + "!");
-                        break;
-                    }
+                    //                    if ($(window).width() < 376) {
+                    //                        $("#greeting-div").html(data[i][1] + "<br>" + name + "!");
+                    //                    } else {
+                    $("#greeting-div").html("<p>" + data[i][1] +
+                        "</p>&nbsp<p>" + name + "!</p");
+                    break;
+                    //                    }
 
                 }
             }
@@ -237,9 +233,9 @@ function main() {
         }
 
         if (currentUser.newUser === false) {
-            console.log("hello again")
             updateArrivals();
             updateWeather();
+            updateNews();
             setTimer(30);
         }
     }) //end of long $(document).ready
