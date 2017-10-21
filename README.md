@@ -33,7 +33,7 @@ Current Supported Features Include:
 | [Jquery] - JavaScript Magic   | [Chicago CTA] - Our Bus Tracker  |
 | [Firebase] - Database and Login Authentication  | [Andruxnet Random Famous Quotes] - Generates a Random Quote |
 | [Bootstrap] - Website Layout and Modal | [Open Weather] - Retrieves current weather  |
-| [Tether JS] - Library for Making an Absolutely Positioned Element Stay Next to Another Element |   |
+| [Tether JS] - Library for Making an Absolutely Positioned Element Stay Next to Another Element |[Every Block] - API with local news event |
 | [FlipClock.js] - Its a clock.. that flips! | |
 | [Animated Weather Icons] - by Josh Bader https://codepen.io/joshbader/pen/EjXgqr | |
 
