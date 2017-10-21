@@ -129,11 +129,10 @@ var BusTrackerModule = (function () {
                         // console.log('prefRequest === true');
                         // console.log("optionalCallback was passed currentRequest", optionalCallback);
                         return optionalCallback(currentRequest);
-
-                    } else { //else is 
-                        // console.log('currentRequest', currentRequest);
-                        module.getPredictions(routeNumber, stopId, optionalCallback);
-                        // console.log('optionalCallback', optionalCallback)
+                    }else{//else is 
+                    // console.log('currentRequest', currentRequest);
+                    module.getPredictions(routeNumber, stopId, optionalCallback);
+                    // console.log('optionalCallback', optionalCallback)
                     }
                 });
             stops.forEach(function (stop) {
@@ -167,8 +166,7 @@ var BusTrackerModule = (function () {
 
     //returns an array of predicted objects containing bus arrival times and other info
     module.getPredictions = function (routeNumber, stopId, optionalCallback = null) {
-        //        console.log('getPredictions called.');
-        queryCTA("getpredictions", ("rt=" + routeNumber + "&stpid=" + stopId + "&top=3"), function (response) {
+        queryCTA("getpredictions", ("rt=" + routeNumber + "&stpid=" + stopId + "&top=4"), function (response) {
             var predictionsResponse = response["bustime-response"];
             if (predictionsResponse.hasOwnProperty("prd")) {
                 var predictions = predictionsResponse.prd;
@@ -180,7 +178,9 @@ var BusTrackerModule = (function () {
             } else {
                 var error = predictionsResponse.error;
                 // console.log('error', error);
-                return optionalCallback(["error", error, currentRequest]);
+
+                    return optionalCallback(["error", error, currentRequest]);
+
             }
         });
     }
