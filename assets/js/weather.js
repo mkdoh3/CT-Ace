@@ -48,7 +48,7 @@ function updateWeather() {
         method: "GET"
     }).done(function (response) {
 
-        console.log(response);
+        //        console.log(response);
 
         // assign reponse to weather weatherAPIObject
         let weatherAPIObject = response;
