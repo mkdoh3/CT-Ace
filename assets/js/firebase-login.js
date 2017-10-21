@@ -36,7 +36,7 @@ const uiConfig = {
 //          firebase.auth.PhoneAuthProvider.PROVIDER_ID
         ],
     // Terms of service url.
-    tosUrl: '<your-tos-url>'
+    tosUrl: 'https://www.youtube.com/watch?v=oHg5SJYRHA0'
 };
 
 // Initialize the FirebaseUI Widget using Firebase.
