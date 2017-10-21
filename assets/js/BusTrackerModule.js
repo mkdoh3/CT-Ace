@@ -60,7 +60,10 @@ var BusTrackerModule = (function () {
     function routesDropdown(routesArray, optionalCallback = null) {
         $(idOfPanelTitleDiv).html("<h5>Bus Preferences</h5><h3>Select A Route</h3>");
         $(idOfDropdownDiv).fadeOut(1).empty()
-        var dropdown = $("<select required id='route-select' size=6>")
+        var dropdown = $("<select required id='route-select'>")
+        dropdown.append($("<option>")
+            .attr("value", null)
+            .text("-  bus route  -"))
             .change(function () { //event listener to call directionsDropdown once route is selected
                 $(idOfDropdownDiv).fadeOut(1);
                 var route = $(this).val();
@@ -79,13 +82,13 @@ var BusTrackerModule = (function () {
     //creates and displays a dropdown menu of allowed route directions
     function directionsDropdown(routeNumber, optionalCallback = null) {
         $(idOfPanelTitleDiv).html("<h5>Bus Preferences</h5><h3>Select Direction of Travel</h3>");
-        //        $(idOfDropdownDiv).fadeOut(1)
+        $(idOfDropdownDiv).fadeOut(1);
         queryCTA("getdirections", ("rt=" + routeNumber), (function (response) {
             var directions = response["bustime-response"].directions;
             var dropdown = $("<select required id='direction-select'>");
             dropdown.append($("<option>")
-                    .attr("value", null)
-                    .text("direction"))
+                .attr("value", null)
+                .text("-  direction  -"))
                 .change(function () { //event listener to call stopsDropdown once direction is selected
                     var direction = $(this).val();
                     currentRequest.direction = direction;
@@ -111,9 +114,9 @@ var BusTrackerModule = (function () {
         // console.log("optionalCallback passed to stopsDropdown", optionalCallback);
         queryCTA("getstops", ("rt=" + routeNumber + "&dir=" + direction), (function (response) {
             var stops = response["bustime-response"].stops;
-            var dropdown = $("<select required id='stop-select' size=6>")
-                .attr("value", null)
-                .text("bus stop location")
+            var firstOption = $("<option>").attr("value", null).text("-  bus stop  -");
+            var dropdown = $("<select required id='stop-select'>")
+            dropdown.append(firstOption)
                 .change(function () { //event listener to call getPredictions once stop is selected
                     var value = $(this).val().split(" ");
                     var stopId = value[0];
@@ -126,11 +129,10 @@ var BusTrackerModule = (function () {
                         // console.log('prefRequest === true');
                         // console.log("optionalCallback was passed currentRequest", optionalCallback);
                         return optionalCallback(currentRequest);
-
-                    } else { //else is 
-                        // console.log('currentRequest', currentRequest);
-                        module.getPredictions(routeNumber, stopId, optionalCallback);
-                        // console.log('optionalCallback', optionalCallback)
+                    }else{//else is 
+                    // console.log('currentRequest', currentRequest);
+                    module.getPredictions(routeNumber, stopId, optionalCallback);
+                    // console.log('optionalCallback', optionalCallback)
                     }
                 });
             stops.forEach(function (stop) {
@@ -164,8 +166,7 @@ var BusTrackerModule = (function () {
 
     //returns an array of predicted objects containing bus arrival times and other info
     module.getPredictions = function (routeNumber, stopId, optionalCallback = null) {
-        //        console.log('getPredictions called.');
-        queryCTA("getpredictions", ("rt=" + routeNumber + "&stpid=" + stopId + "&top=3"), function (response) {
+        queryCTA("getpredictions", ("rt=" + routeNumber + "&stpid=" + stopId + "&top=4"), function (response) {
             var predictionsResponse = response["bustime-response"];
             if (predictionsResponse.hasOwnProperty("prd")) {
                 var predictions = predictionsResponse.prd;
@@ -177,7 +178,9 @@ var BusTrackerModule = (function () {
             } else {
                 var error = predictionsResponse.error;
                 // console.log('error', error);
-                return optionalCallback(["error", error, currentRequest]);
+
+                    return optionalCallback(["error", error, currentRequest]);
+
             }
         });
     }
