@@ -25,7 +25,7 @@ const database = firebase.database()
 
 
 const uiConfig = {
-    signInSuccessUrl: 'dashboard.html',
+    signInSuccessUrl: 'index.html',
     signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -46,14 +46,13 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 
 
-firebase.auth().onAuthStateChanged(function () {
+firebase.auth().onAuthStateChanged(function (user) {
 
     var user = firebase.auth().currentUser;
-    console.log('user', user);
     currentUserID = user.uid
-    console.log("currentUserID = ", currentUserID);
     if (user != null) {
-        database.ref("users").child(user.uid).update({
+        //user.uid is used as a unique root of each user's 'profile' object on firebase 
+        database.ref("users").child(user.uid).set({
             email: user.email,
             displayName: user.displayName,
             newUser: true

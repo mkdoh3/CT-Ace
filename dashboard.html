@@ -2,126 +2,31 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <title>Title</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/flipclock.css">
-    <link rel="stylesheet" href="assets/css/weather.css">
-    <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="assets/css/dashboard-style.css">
-    <script src="https://use.fontawesome.com/38591a8d48.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
-
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/firebase-login.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.css" />
 </head>
 
 <body>
-    <!-- Modal per bootstrap guidelines it should be located near the top-->
-    <div class="modal fade" id="input-modal" role="input form">
-        <div class="modal-dialog">
-            <!--            Modal content-->
-            <div class="modal-content">
-                <div class="modal-header" id="modalText">
-                    <h2 id="welcomeUser"></h2>
-                    <h3>Please Enter Your Chicago Zipcode for Weather Updates</h3>
-                </div>
-                <div class="modal-body">
-                    <form role="form">
-                        <div class="form-group" id="dropDowns">
-                            <input type="text" class="form-control" id="zipCode" placeholder="6-digit zip">
-                        </div>
-                        <button class="btn btn-default btn-block" id="nextBtn">Next</button>
-                    </form>
-                </div>
-            </div>
+
+    <div class="background_blur"></div>
+
+    <div class="container">
+
+        <div id="firebaseui-auth-container">
+            <img src="assets/images/ctaDash.png" alt="Logo" class="logo">
         </div>
+
     </div>
-    <div class="container-fluid site-wrapper">
-
-        <div class="row row-1">
-            <div class="col-3 cog-div">
-                <a id="changeSettingsCog"><i class="fa fa-cog fa-2x settings-cog" aria-hidden="true"></i></a>
-            </div>
-            <!--          add link to weather based on zipCode-->
-            <div class="col-9 weather-div"><a href="#" class="weather-link" target="_blank"></a>
-            </div>
-        </div>
-
-        <div class="row row-2">
-            <div class="col-12 clock-div">
-            </div>
-        </div>
-
-
-        <div class="row row-3">
-            <div class="col-12 greeting-wrapper">
-                <div id="greeting-div"></div>
-            </div>
-        </div>
-
-        <div class="row row-4">
-            <div class="col-md-6 col-sm-12 tracker-div">
-                <div class="card content-card">
-                    <table class="table">
-                        <thead class="table-head">
-                            <tr>
-                                <th id="busNumber">Loading...</th>
-                                <th id="stopInfo"><br></th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-body" id="arrivalTable">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-
-            <div class="col-md-6 col-sm-12 news-div">
-                <div class="card content-card">
-                    <div class="card-header table-head">Local News</div>
-                    <div class="card-block" id=newsobject>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row row-5">
-            <div class="col-12 quote-div">
-                <blockquote class="blockquote mb-0" id="randomQuote">
-                    <p id="quote-content"></p>
-                    <footer class="blockquote-footer" id="quote-author"></footer>
-                </blockquote>
-            </div>
-        </div>
-        <div class="row row-6">
-            <div class="col-12 logo-div">
-
-                <img id="logo" src="assets/images/ctaDash.png" alt="logo">
-            </div>
-        </div>
-    </div>
-
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-    <script src="assets/js/flipclock.min.js"></script>
-
-    <script src="assets/js/weather.js"></script>
-
-    <script src="assets/js/news.js"></script>
-
-    <script src="assets/js/routes.js"></script>
-
-    <script src="assets/js/BusTrackerModule.js"></script>
-
-    <script src="assets/js/dashboard.js"></script>
 
 
 </body>
