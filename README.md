@@ -34,6 +34,9 @@ Current Supported Features Include:
 | [Firebase] - Database and Login Authentication  | [Andruxnet Random Famous Quotes] - Generates a Random Quote |
 | [Bootstrap] - Website Layout and Modal | [Open Weather] - Retrieves current weather  |
 | [Tether JS] - Library for Making an Absolutely Positioned Element Stay Next to Another Element |   |
+| [FlipClock.js] - Its a clock.. that flips! | |
+| [Animated Weather Icons] - by Josh Bader https://codepen.io/joshbader/pen/EjXgqr | |
+
 
 
 ## Future Updates
