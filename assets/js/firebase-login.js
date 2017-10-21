@@ -43,16 +43,25 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#firebaseui-auth-container', uiConfig);
 
 
-firebase.auth().onAuthStateChanged(function () {
+firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+
     var user = firebase.auth().currentUser;
     console.log('user', user);
     currentUserID = user.uid
     console.log("currentUserID = ", currentUserID);
     if (user != null) {
-        database.ref("users").child(user.uid).set({
+        database.ref("users").child(user.uid).update({
             email: user.email,
             displayName: user.displayName,
             newUser: true
         })
     }
-})
+
+});
+
+
+
+
+
+//firebase.auth().onAuthStateChanged(function () {
+//})
