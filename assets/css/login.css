@@ -23,6 +23,11 @@ body {
     display: none;
 }
 
+.firebaseui-callback-indicator-container  {
+    background-color: rgba(0, 0, 0, 0.9);
+
+}
+
 .logo {
     height: 100%;
     width: 100%;
