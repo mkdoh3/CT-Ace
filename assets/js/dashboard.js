@@ -5,9 +5,6 @@ const resetModal = "<div class='modal-dialog'><div class='modal-content'><div cl
 const validZips = ["60007", "60018", "60068", "60076", "60077", "60106", "60131", "60171", "60176", "60189", "60201", "60202", "60301", "60302", "60304", "60305", "60406", "60419", "60440", "60453", "60456", "60459", "60501", "60504", "60515", "60517", "60532", "60540", "60555", "60563", "60564", "60565", "60585", "60601", "60602", "60603", "60604", "60605", "60606", "60607", "60608", "60609", "60610", "60611", "60612", "60613", "60614", "60615", "60616", "60617", "60618", "60619", "60620", "60621", "60622", "60623", "60624", "60625", "60626", "60628", "60629", "60630", "60631", "60632", "60633", "60634", "60635", "60636", "60637", "60638", "60639", "60640", "60641", "60642", "60643", "60644", "60645", "60646", "60647", "60649", "60651", "60652", "60653", "60654", "60655", "60656", "60657", "60659", "60660", "60661", "60666", "60674", "60690", "60699", "60706", "60707", "60712", "60714", "60803", "60804", "60805", "60827"
 ]
 
-
-
-
 const config = {
     apiKey: "AIzaSyBoDzxA09zepIWCD9INLvERA63qHwd_oZ4",
     authDomain: "ct-ace.firebaseapp.com",
@@ -15,16 +12,7 @@ const config = {
     projectId: "ct-ace",
     storageBucket: "ct-ace.appspot.com",
     messagingSenderId: "310061683501"
-}; //Mike's firebase
-
-// const config = {
-//     apiKey: "AIzaSyCivRfgDQux9l4K9QGWsNuMnDy-zD0QAaw",
-//     authDomain: "cta-dash.firebaseapp.com",
-//     databaseURL: "https://cta-dash.firebaseio.com",
-//     projectId: "cta-dash",
-//     storageBucket: "",
-//     messagingSenderId: "195672621360"
-//   };//Dennis' firebase
+}; 
 
 firebase.initializeApp(config);
 
