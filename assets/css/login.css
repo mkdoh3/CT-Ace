@@ -24,8 +24,7 @@ body {
 }
 
 .firebaseui-callback-indicator-container  {
-    background-color: rgba(0, 0, 0, 0.9);
-
+    display: none;
 }
 
 .logo {
