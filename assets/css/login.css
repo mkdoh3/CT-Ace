@@ -1,156 +1,52 @@
 body {
-    margin: 0;
-    padding: 0;
     background: url(../images/city_water_cloud_boat-11242.jpg!d) no-repeat center center;
     background-size: cover;
     height: 100vh;
     width: 100vw;
-    position: relative;
-    background-color: rgba(0,0,0,0.9);
-}
-
-.background_blur{
-    height: 100%;
-    width: 100%
-    position: absolute;
-    background-color: rgba(0,0,0, 0.5);
-}
-
-.firebaseui-info-bar, .firebaseui-id-info-bar {
-    display: none;
+    display: grid;
 }
 
 .container {
-    width: 30%;
-    height: auto;
+    width: 40vw;
     background-color: rgba(0, 0, 0, 0.9);
     opacity: .9;
-    border: .5em lightblue;
-    border-style: outset;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border: .5em lightblue outset;
+    align-self: center;
+    justify-self: center;
 }
 
-
-#firebaseui-auth-container {
-    padding: .75em 1em;
-    height: auto;
-    width: 100%;
-    font-size: 1em;
+.container li {
+    padding: .25em 0;
 }
 
-#firebaseui-auth-container .logo {
+.firebaseui-info-bar {
+    display: none;
+}
+
+.logo {
     height: 100%;
     width: 100%;
     margin: 0 auto;
 
 }
-#firebaseui-auth-container .firebaseui-form-actions .firebaseui-card-actions .button{
-
-    font-size: 0.5em !important;
-}
-
-.firebaseui-container, .firebaseui-page-provider-sign-in, .firebaseui-id-page-provider-sign-in{
-    padding-top: 25px;
-}
-
-
-@media only screen and (max-width: 1040px){
-
-
- .container {
-     width: 50%;
-     background-color: rgba(0, 0, 0, 0.9);
-     opacity: .9;
-     border: .5em lightblue;
-     border-style: outset;
-     height: auto;
-
- }
-
-
-
- #firebaseui-auth-container .logo {
-     height: 100%;
-     width: 100%;
-     margin: 0 auto;
-
- }
-
-
- .firebaseui-idp-list span{
-     font-size: 1em;
-
- }
-
- .firebaseui-button{
-     min-width: 20px !important;
-     margin-left: 0 !important;
- }
-
- .firebaseui-subtitle, .firebaseui-title{
-     font-size: 1em !important;
-     text-align: center !important;
-     margin: 0;
-     padding: 0;
- }
-
-
-}
-
 @media only screen and (max-width: 840px){
 
-
  .container {
-     width: 80%;
+     width: 80vw;
     }
  }
-
- .firebaseui-idp-list span{
-     font-size: 1.5em;
- }
-
- @media only screen and (max-width: 740px){
-
-
-  .container {
-      width: 85%;
-     }
-  }
-
-  .firebaseui-idp-list span{
-      font-size: 1.2em;
-  }
-
-@media only screen and (max-width: 640px){
-
- .container {
-     width: 90%;
-    }
- }
-
- .firebaseui-idp-list span{
-     font-size: 0.8em;
- }
-
-
-  /*End of Media Query*/
 
 @media only screen and (max-width: 320px){
 
-.container {
-    width: 100%;
-   }
+    .container {
+        width: 100vw;
+    }
 
-::-webkit-scrollbar {
-   display: none;
-}
+    ::-webkit-scrollbar {
+    display: none;
+    }
 
-.firebaseui-idp-list span{
-   font-size: 0.7em;
+    .firebaseui-idp-list span{
+    font-size: 0.7em;
+    }
 }
-
-}
- /*End of Media Query*/
