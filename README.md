@@ -8,7 +8,7 @@ CTA-Dash is a client-side application that allows users to store and track their
 
 ## Installation
 
-CTA-Dash is hosted from our Github page. No installation is required. Please visit https://consoledotfun.github.io/CT-Aced/ to sign up as a new user or login as a returning user.  
+CTA-Dash is hosted from our Github page. No installation is required. Please visit https://mkdoh3.github.io/CTA_Dash/login to sign up as a new user or login as a returning user.  
 
 
 ## Browser Compatibility
